@@ -1,0 +1,12 @@
+{
+  "name": "cloudflare-kmp-worker-template",
+  "private": true,
+  "scripts": {
+    "build": "../gradlew :worker-template:jsProductionExecutableCompileSync",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+name = "cloudflare-kmp-worker"
+main = "src/worker.mjs"
+compatibility_date = "2026-05-19"
+workers_dev = true
+
+[vars]
+PUBLISHABLE_KEY = "cfpub_dev_replace_me"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cloudflare_kmp_dev"
+database_id = "replace-me"
+
+[[kv_namespaces]]
+binding = "APP_KV"
+id = "replace-me"
