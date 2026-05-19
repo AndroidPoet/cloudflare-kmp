@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="art/logo.jpeg" width="720" alt="Cloudflare KMP Logo">
+  <img src="art/logo-cropped.jpeg" width="720" alt="Cloudflare KMP Logo">
 </p>
 
 <p align="center">
