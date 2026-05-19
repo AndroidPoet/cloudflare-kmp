@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="art/logo.jpeg" width="720" alt="Cloudflare KMP Logo">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Kotlin-2.1.10-blue.svg?logo=kotlin" alt="Kotlin">
   <img src="https://img.shields.io/badge/Ktor-3.1.1-blue.svg" alt="Ktor">
   <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20JVM%20%7C%20WasmJs-green.svg" alt="Platforms">
