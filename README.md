@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="art/logo.svg" width="800" alt="Cloudflare KMP">
+  <img src="art/logo-cropped.jpeg" width="720" alt="Cloudflare KMP Logo">
 </p>
 
 <p align="center">
@@ -126,10 +126,6 @@ todos.onSuccess { items ->
 }.onFailure { error ->
     println("Error: ${error.message}")
 }
-
-// Optional: use Kotlin Result if you do not want CloudflareResult in app layers
-val kotlinResult: Result<List<Todo>> = todos.toKotlinResult()
-val backToSdk: CloudflareResult<List<Todo>> = kotlinResult.toCloudflareResult()
 ```
 
 Insert:
