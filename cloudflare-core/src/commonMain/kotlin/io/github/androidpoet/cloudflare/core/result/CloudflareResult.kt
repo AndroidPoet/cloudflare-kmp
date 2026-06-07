@@ -1,5 +1,7 @@
 package io.github.androidpoet.cloudflare.core.result
 
+import kotlinx.coroutines.CancellationException
+
 public sealed interface CloudflareResult<out T> {
     public data class Success<out T>(public val value: T) : CloudflareResult<T>
     public data class Failure(public val error: CloudflareError) : CloudflareResult<Nothing>
@@ -28,7 +30,8 @@ public sealed interface CloudflareResult<out T> {
                 Success(block())
             } catch (exception: CloudflareException) {
                 Failure(exception.error)
-            } catch (exception: Exception) {
+            } catch (exception: Throwable) {
+                if (exception is CancellationException) throw exception
                 Failure(
                     CloudflareError(
                         message = exception.message ?: "Unknown error",
@@ -97,3 +100,24 @@ public inline fun <T> CloudflareResult<T>.getOrElse(
     is CloudflareResult.Success -> value
     is CloudflareResult.Failure -> defaultValue(error)
 }
+
+public fun <T> CloudflareResult<T>.toKotlinResult(): Result<T> = when (this) {
+    is CloudflareResult.Success -> Result.success(value)
+    is CloudflareResult.Failure -> Result.failure(error.toException())
+}
+
+public inline fun <T> Result<T>.toCloudflareResult(
+    mapThrowable: (Throwable) -> CloudflareError = { throwable ->
+        val cloudflareException = throwable as? CloudflareException
+        cloudflareException?.error ?: CloudflareError(
+            message = throwable.message ?: "Unknown error",
+            cause = throwable,
+        )
+    },
+): CloudflareResult<T> = fold(
+    onSuccess = { CloudflareResult.Success(it) },
+    onFailure = { throwable ->
+        if (throwable is CancellationException) throw throwable
+        CloudflareResult.Failure(mapThrowable(throwable))
+    },
+)
