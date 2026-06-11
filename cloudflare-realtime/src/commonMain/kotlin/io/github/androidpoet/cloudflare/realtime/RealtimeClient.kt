@@ -27,11 +27,13 @@ public fun createRealtimeClient(
     workerUrl: String,
     publishableKey: String,
     accessTokenProvider: suspend () -> String? = { null },
+    reconnect: Boolean = true,
 ): RealtimeClient =
     WebSocketRealtimeClient(
-        CloudflareConfig(
+        config = CloudflareConfig(
             workerUrl = workerUrl,
             publishableKey = publishableKey,
             accessTokenProvider = accessTokenProvider,
         ),
+        reconnect = reconnect,
     )

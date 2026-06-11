@@ -35,7 +35,8 @@ Production gaps are explicit: R2 signing and Durable Object realtime are API-sha
 - **D1 table API** — Supabase-style `from("todos").select<Todo>()`, `insert`, `update`, and `delete`
 - **KV helpers** — read/write plain text or typed JSON through your Worker binding
 - **R2 API shape** — signed upload/download URL client ready for Worker-side SigV4 implementation
-- **Realtime API surface** — channel and broadcast model designed for Durable Object WebSockets
+- **Realtime WebSocket client** — connects to the Worker `/realtime` endpoint, subscribe/broadcast over a `wss://` socket with auto-reconnect and backoff
+- **Direct REST API client** — `CloudflareApiClient` for `https://api.cloudflare.com/client/v4` (D1 database + query, KV namespaces/values/bulk, R2 buckets) with the standard `{success, errors, messages, result, result_info}` envelope, for server-side/admin use
 - **Kotlin/JS Worker template** — Kotlin-authored gateway compiled to a modern module Worker
 - **Modular SDK** — install only the Cloudflare pieces your app needs
 
