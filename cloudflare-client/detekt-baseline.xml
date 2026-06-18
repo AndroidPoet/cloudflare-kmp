@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>MatchingDeclarationName:CloudflareApiClientExt.kt$CloudflarePage&lt;out T></ID>
+    <ID>NestedBlockDepth:CloudflareApiClientExt.kt$@PublishedApi internal fun &lt;T> CloudflareResult&lt;String>.decodeEnvelopePage( json: Json, elementSerializer: KSerializer&lt;T>, ): CloudflareResult&lt;CloudflarePage&lt;T>></ID>
+  </CurrentIssues>
+</SmellBaseline>

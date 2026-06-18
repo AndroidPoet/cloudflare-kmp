@@ -7,7 +7,10 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 @Serializable
-private data class Sample(val id: String, val name: String)
+private data class Sample(
+    val id: String,
+    val name: String,
+)
 
 class CloudflareEnvelopeTest {
     @Test
@@ -31,11 +34,12 @@ class CloudflareEnvelopeTest {
 
     @Test
     fun test_decodeEnvelopeListPage_parsesResultInfoCursor() {
-        val raw = """
+        val raw =
+            """
             {"success":true,"errors":[],"messages":[],
              "result":[{"id":"1","name":"one"},{"id":"2","name":"two"}],
              "result_info":{"page":1,"per_page":2,"count":2,"cursor":"next123"}}
-        """.trimIndent()
+            """.trimIndent()
         val result = CloudflareResult.Success(raw).decodeEnvelopeListPage<Sample>()
 
         val page = result.getOrNull()
@@ -63,12 +67,13 @@ class CloudflareEnvelopeTest {
 
     @Test
     fun test_decodeEnvelope_transportFailure_propagatesUnchanged() {
-        val failure: CloudflareResult<String> = CloudflareResult.Failure(
-            io.github.androidpoet.cloudflare.core.result.CloudflareError(
-                message = "network down",
-                category = io.github.androidpoet.cloudflare.core.result.CloudflareErrorCategory.Network,
-            ),
-        )
+        val failure: CloudflareResult<String> =
+            CloudflareResult.Failure(
+                io.github.androidpoet.cloudflare.core.result.CloudflareError(
+                    message = "network down",
+                    category = io.github.androidpoet.cloudflare.core.result.CloudflareErrorCategory.Network,
+                ),
+            )
         val result = failure.decodeEnvelope<Sample>()
 
         assertEquals("network down", result.errorOrNull()?.message)

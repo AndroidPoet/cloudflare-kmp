@@ -1,0 +1,112 @@
+---
+title: Getting Started
+description: Add Cloudflare KMP to a Kotlin Multiplatform project, create a client, and make your first D1 and KV calls.
+---
+
+# Getting Started
+
+Cloudflare KMP has two parts:
+
+- A **Kotlin Multiplatform SDK** used by Android, iOS, JVM and Wasm clients.
+- A **Cloudflare Worker gateway** that safely talks to Cloudflare bindings.
+
+The app never receives Cloudflare account API tokens — only a Worker URL and a
+publishable key.
+
+## Add the dependencies
+
+Declare the versions in your `gradle/libs.versions.toml`:
+
+```toml
+[versions]
+cloudflare-kmp = "0.1.0-alpha01"
+
+[libraries]
+cloudflare-client   = { module = "io.github.androidpoet:cloudflare-client",   version.ref = "cloudflare-kmp" }
+cloudflare-d1       = { module = "io.github.androidpoet:cloudflare-d1",       version.ref = "cloudflare-kmp" }
+cloudflare-kv       = { module = "io.github.androidpoet:cloudflare-kv",       version.ref = "cloudflare-kmp" }
+cloudflare-r2       = { module = "io.github.androidpoet:cloudflare-r2",       version.ref = "cloudflare-kmp" }
+cloudflare-realtime = { module = "io.github.androidpoet:cloudflare-realtime", version.ref = "cloudflare-kmp" }
+```
+
+Then add what you need to your `commonMain` source set:
+
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.cloudflare.client)    // includes cloudflare-core
+            implementation(libs.cloudflare.d1)        // optional
+            implementation(libs.cloudflare.kv)        // optional
+            implementation(libs.cloudflare.r2)        // optional
+            implementation(libs.cloudflare.realtime)  // optional
+        }
+    }
+}
+```
+
+Until the first Maven Central release is visible, use `publishToMavenLocal` or a
+maven repository from your fork.
+
+## 1. Create the client
+
+```kotlin
+val cloudflare = createCloudflareClient(
+    workerUrl = "https://api.example.workers.dev",
+    publishableKey = "cfpub_live_xxx",
+)
+```
+
+For logged-in users, supply a bearer token:
+
+```kotlin
+val cloudflare = createCloudflareClient(
+    workerUrl = "https://api.example.workers.dev",
+    publishableKey = "cfpub_live_xxx",
+    accessTokenProvider = { sessionStore.currentAccessToken },
+)
+```
+
+Every request then carries:
+
+```http
+x-cloudflare-publishable-key: cfpub_live_xxx
+Authorization: Bearer optional-user-token
+```
+
+## 2. Query D1
+
+```kotlin
+@Serializable
+data class Todo(
+    val id: String,
+    val title: String,
+    val done: Boolean,
+)
+
+val result = cloudflare
+    .d1()
+    .from("todos")
+    .select<Todo> {
+        eq("done", "false")
+        order("created_at", descending = true)
+        limit(25)
+    }
+
+result
+    .onSuccess { todos -> println(todos) }
+    .onFailure { error -> println(error.message) }
+```
+
+## 3. Read and write KV
+
+```kotlin
+val kv = cloudflare.kv()
+
+kv.putText("APP_KV", "settings/theme", "dark")
+
+val theme = kv.get("APP_KV", "settings/theme")
+```
+
+Next: read the **[Usage](/usage)** reference for the full D1, KV, R2 and
+realtime surface.

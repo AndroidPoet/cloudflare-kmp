@@ -35,11 +35,12 @@ internal class WebSocketRealtimeClient(
     private val reconnect: Boolean = true,
     private val maxReconnectAttempts: Int = 5,
 ) : RealtimeClient {
-    private val json = Json {
-        ignoreUnknownKeys = true
-        isLenient = true
-        explicitNulls = false
-    }
+    private val json =
+        Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+            explicitNulls = false
+        }
 
     private val scope = CoroutineScope(SupervisorJob())
     private val mutableConnectionState = MutableStateFlow<ConnectionState>(ConnectionState.Disconnected)
@@ -62,14 +63,16 @@ internal class WebSocketRealtimeClient(
     private suspend fun openSession(attempt: Int) {
         mutableConnectionState.value = ConnectionState.Connecting
         try {
-            val httpClient = HttpClient(defaultPlatformEngine()) {
-                install(WebSockets)
-            }
+            val httpClient =
+                HttpClient(defaultPlatformEngine()) {
+                    install(WebSockets)
+                }
             val token = config.accessTokenProvider()
-            val newSession = httpClient.webSocketSession(realtimeUrl()) {
-                header(CloudflareHeaders.PUBLISHABLE_KEY, config.publishableKey)
-                token?.let { header(CloudflareHeaders.AUTHORIZATION, "Bearer $it") }
-            }
+            val newSession =
+                httpClient.webSocketSession(realtimeUrl()) {
+                    header(CloudflareHeaders.PUBLISHABLE_KEY, config.publishableKey)
+                    token?.let { header(CloudflareHeaders.AUTHORIZATION, "Bearer $it") }
+                }
             client = httpClient
             session = newSession
             mutableConnectionState.value = ConnectionState.Connected
@@ -94,9 +97,10 @@ internal class WebSocketRealtimeClient(
         try {
             for (frame in activeSession.incoming) {
                 if (frame !is Frame.Text) continue
-                val event = runCatching {
-                    json.decodeFromString(RealtimeEvent.serializer(), frame.readText())
-                }.getOrNull() ?: continue
+                val event =
+                    runCatching {
+                        json.decodeFromString(RealtimeEvent.serializer(), frame.readText())
+                    }.getOrNull() ?: continue
                 dispatch(event)
             }
             // Channel closed normally.
@@ -127,12 +131,13 @@ internal class WebSocketRealtimeClient(
         onEvent: suspend (RealtimeEvent) -> Unit,
     ): RealtimeSubscription {
         require(channel.isNotBlank()) { "channel cannot be blank." }
-        val isNew = mutex.withLock {
-            val handlers = subscriptions.getOrPut(channel) { mutableListOf() }
-            val firstHandler = handlers.isEmpty()
-            handlers.add(onEvent)
-            firstHandler
-        }
+        val isNew =
+            mutex.withLock {
+                val handlers = subscriptions.getOrPut(channel) { mutableListOf() }
+                val firstHandler = handlers.isEmpty()
+                handlers.add(onEvent)
+                firstHandler
+            }
         if (isNew && session != null) {
             sendControl("subscribe", channel)
         }
@@ -146,10 +151,11 @@ internal class WebSocketRealtimeClient(
     ) {
         require(channel.isNotBlank()) { "channel cannot be blank." }
         require(event.isNotBlank()) { "event cannot be blank." }
-        val message = json.encodeToString(
-            RealtimeMessage.serializer(),
-            RealtimeMessage(type = "broadcast", channel = channel, event = event, payload = payload),
-        )
+        val message =
+            json.encodeToString(
+                RealtimeMessage.serializer(),
+                RealtimeMessage(type = "broadcast", channel = channel, event = event, payload = payload),
+            )
         session?.send(message)
     }
 
@@ -166,10 +172,11 @@ internal class WebSocketRealtimeClient(
     }
 
     private suspend fun sendControl(type: String, channel: String) {
-        val message = json.encodeToString(
-            RealtimeMessage.serializer(),
-            RealtimeMessage(type = type, channel = channel),
-        )
+        val message =
+            json.encodeToString(
+                RealtimeMessage.serializer(),
+                RealtimeMessage(type = type, channel = channel),
+            )
         runCatching { session?.send(message) }
     }
 
@@ -181,25 +188,27 @@ internal class WebSocketRealtimeClient(
 
     private fun realtimeUrl(): String {
         val base = config.normalizedWorkerUrl
-        val wsBase = when {
-            base.startsWith("https://") -> "wss://" + base.removePrefix("https://")
-            base.startsWith("http://") -> "ws://" + base.removePrefix("http://")
-            else -> base
-        }
+        val wsBase =
+            when {
+                base.startsWith("https://") -> "wss://" + base.removePrefix("https://")
+                base.startsWith("http://") -> "ws://" + base.removePrefix("http://")
+                else -> base
+            }
         return "$wsBase/realtime"
     }
 
     private suspend fun removeHandler(channel: String, handler: suspend (RealtimeEvent) -> Unit) {
-        val nowEmpty = mutex.withLock {
-            val handlers = subscriptions[channel] ?: return@withLock false
-            handlers.remove(handler)
-            if (handlers.isEmpty()) {
-                subscriptions.remove(channel)
-                true
-            } else {
-                false
+        val nowEmpty =
+            mutex.withLock {
+                val handlers = subscriptions[channel] ?: return@withLock false
+                handlers.remove(handler)
+                if (handlers.isEmpty()) {
+                    subscriptions.remove(channel)
+                    true
+                } else {
+                    false
+                }
             }
-        }
         if (nowEmpty && session != null) {
             sendControl("unsubscribe", channel)
         }

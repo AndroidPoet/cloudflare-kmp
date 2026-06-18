@@ -1,0 +1,362 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloudflare-kmp:cloudflare-core>
+final enum class io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory : kotlin/Enum<io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory> { // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory|null[0]
+    enum entry Conflict // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Conflict|null[0]
+    enum entry Forbidden // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Forbidden|null[0]
+    enum entry Network // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Network|null[0]
+    enum entry NotFound // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.NotFound|null[0]
+    enum entry RateLimited // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.RateLimited|null[0]
+    enum entry Serialization // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Serialization|null[0]
+    enum entry Server // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Server|null[0]
+    enum entry Unauthorized // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Unauthorized|null[0]
+    enum entry Unknown // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.Unknown|null[0]
+
+    final val entries // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory> // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory> // io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory.values|values#static(){}[0]
+}
+
+sealed interface <#A: out kotlin/Any?> io.github.androidpoet.cloudflare.core.result/CloudflareResult { // io.github.androidpoet.cloudflare.core.result/CloudflareResult|null[0]
+    open val isFailure // io.github.androidpoet.cloudflare.core.result/CloudflareResult.isFailure|{}isFailure[0]
+        open fun <get-isFailure>(): kotlin/Boolean // io.github.androidpoet.cloudflare.core.result/CloudflareResult.isFailure.<get-isFailure>|<get-isFailure>(){}[0]
+    open val isSuccess // io.github.androidpoet.cloudflare.core.result/CloudflareResult.isSuccess|{}isSuccess[0]
+        open fun <get-isSuccess>(): kotlin/Boolean // io.github.androidpoet.cloudflare.core.result/CloudflareResult.isSuccess.<get-isSuccess>|<get-isSuccess>(){}[0]
+
+    open fun errorOrNull(): io.github.androidpoet.cloudflare.core.result/CloudflareError? // io.github.androidpoet.cloudflare.core.result/CloudflareResult.errorOrNull|errorOrNull(){}[0]
+    open fun getOrNull(): #A? // io.github.androidpoet.cloudflare.core.result/CloudflareResult.getOrNull|getOrNull(){}[0]
+    open fun getOrThrow(): #A // io.github.androidpoet.cloudflare.core.result/CloudflareResult.getOrThrow|getOrThrow(){}[0]
+
+    final class <#A1: out kotlin/Any?> Success : io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A1> { // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success|null[0]
+        constructor <init>(#A1) // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.<init>|<init>(1:0){}[0]
+
+        final val value // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.value|{}value[0]
+            final fun <get-value>(): #A1 // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.value.<get-value>|<get-value>(){}[0]
+
+        final fun component1(): #A1 // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.component1|component1(){}[0]
+        final fun copy(#A1 = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success<#A1> // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.copy|copy(1:0){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Success.toString|toString(){}[0]
+    }
+
+    final class Failure : io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Nothing> { // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure|null[0]
+        constructor <init>(io.github.androidpoet.cloudflare.core.result/CloudflareError) // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.<init>|<init>(io.github.androidpoet.cloudflare.core.result.CloudflareError){}[0]
+
+        final val error // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.error|{}error[0]
+            final fun <get-error>(): io.github.androidpoet.cloudflare.core.result/CloudflareError // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.error.<get-error>|<get-error>(){}[0]
+
+        final fun component1(): io.github.androidpoet.cloudflare.core.result/CloudflareError // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.component1|component1(){}[0]
+        final fun copy(io.github.androidpoet.cloudflare.core.result/CloudflareError = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.copy|copy(io.github.androidpoet.cloudflare.core.result.CloudflareError){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Failure.toString|toString(){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Companion|null[0]
+        final inline fun <#A2: kotlin/Any?> catching(kotlin/Function0<#A2>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A2> // io.github.androidpoet.cloudflare.core.result/CloudflareResult.Companion.catching|catching(kotlin.Function0<0:0>){0§<kotlin.Any?>}[0]
+    }
+}
+
+sealed interface io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials { // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials|null[0]
+    final class ApiKey : io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials { // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey|null[0]
+        constructor <init>(kotlin/String, kotlin/String) // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+        final val email // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.email|{}email[0]
+            final fun <get-email>(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.email.<get-email>|<get-email>(){}[0]
+        final val key // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.key|{}key[0]
+            final fun <get-key>(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.key.<get-key>|<get-key>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.component1|component1(){}[0]
+        final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.component2|component2(){}[0]
+        final fun copy(kotlin/String = ..., kotlin/String = ...): io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.copy|copy(kotlin.String;kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiKey.toString|toString(){}[0]
+    }
+
+    final class ApiToken : io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials { // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken|null[0]
+        constructor <init>(kotlin/String) // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.<init>|<init>(kotlin.String){}[0]
+
+        final val token // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.token|{}token[0]
+            final fun <get-token>(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.token.<get-token>|<get-token>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials.ApiToken.toString|toString(){}[0]
+    }
+}
+
+final class <#A: out kotlin/Any?> io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope { // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope|null[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiError> = ..., kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage> = ..., #A? = ..., io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? = ...) // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.<init>|<init>(kotlin.Boolean;kotlin.collections.List<io.github.androidpoet.cloudflare.core.api.CloudflareApiError>;kotlin.collections.List<io.github.androidpoet.cloudflare.core.api.CloudflareApiMessage>;1:0?;io.github.androidpoet.cloudflare.core.api.CloudflareResultInfo?){}[0]
+
+    final val errors // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.errors|{}errors[0]
+        final fun <get-errors>(): kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiError> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.errors.<get-errors>|<get-errors>(){}[0]
+    final val messages // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.messages|{}messages[0]
+        final fun <get-messages>(): kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.messages.<get-messages>|<get-messages>(){}[0]
+    final val result // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.result|{}result[0]
+        final fun <get-result>(): #A? // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.result.<get-result>|<get-result>(){}[0]
+    final val resultInfo // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.resultInfo|{}resultInfo[0]
+        final fun <get-resultInfo>(): io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.resultInfo.<get-resultInfo>|<get-resultInfo>(){}[0]
+    final val success // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.success|{}success[0]
+        final fun <get-success>(): kotlin/Boolean // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.success.<get-success>|<get-success>(){}[0]
+
+    final fun component1(): kotlin/Boolean // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiError> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.component3|component3(){}[0]
+    final fun component4(): #A? // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.component4|component4(){}[0]
+    final fun component5(): io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.component5|component5(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiError> = ..., kotlin.collections/List<io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage> = ..., #A? = ..., io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? = ...): io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope<#A> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.copy|copy(kotlin.Boolean;kotlin.collections.List<io.github.androidpoet.cloudflare.core.api.CloudflareApiError>;kotlin.collections.List<io.github.androidpoet.cloudflare.core.api.CloudflareApiMessage>;1:0?;io.github.androidpoet.cloudflare.core.api.CloudflareResultInfo?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.toString|toString(){}[0]
+
+    final class <#A1: kotlin/Any?> $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope<#A1>> { // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer|null[0]
+        constructor <init>(kotlinx.serialization/KSerializer<#A1>) // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.<init>|<init>(kotlinx.serialization.KSerializer<1:0>){}[0]
+
+        final val descriptor // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+        final val typeSerial0 // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.typeSerial0|{}typeSerial0[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope<#A1> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope<#A1>) // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.core.api.CloudflareEnvelope<1:0>){}[0]
+        final fun typeParametersSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.$serializer.typeParametersSerializers|typeParametersSerializers(){}[0]
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.Companion|null[0]
+        final val $cachedDescriptor // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.Companion.$cachedDescriptor|{}$cachedDescriptor[0]
+            final fun <get-$cachedDescriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.Companion.$cachedDescriptor.<get-$cachedDescriptor>|<get-$cachedDescriptor>(){}[0]
+        final val $childSerializers // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun <#A2: kotlin/Any?> serializer(kotlinx.serialization/KSerializer<#A2>): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope<#A2>> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.Companion.serializer|serializer(kotlinx.serialization.KSerializer<0:0>){0§<kotlin.Any?>}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // io.github.androidpoet.cloudflare.core.api/CloudflareEnvelope.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.core.api/CloudflareApiError { // io.github.androidpoet.cloudflare.core.api/CloudflareApiError|null[0]
+    constructor <init>(kotlin/Int = ..., kotlin/String = ...) // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.<init>|<init>(kotlin.Int;kotlin.String){}[0]
+
+    final val code // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.code|{}code[0]
+        final fun <get-code>(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.code.<get-code>|<get-code>(){}[0]
+    final val message // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.message|{}message[0]
+        final fun <get-message>(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.message.<get-message>|<get-message>(){}[0]
+
+    final fun component1(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.component2|component2(){}[0]
+    final fun copy(kotlin/Int = ..., kotlin/String = ...): io.github.androidpoet.cloudflare.core.api/CloudflareApiError // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.copy|copy(kotlin.Int;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareApiError> { // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.core.api/CloudflareApiError // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.core.api/CloudflareApiError) // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.core.api.CloudflareApiError){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareApiError> // io.github.androidpoet.cloudflare.core.api/CloudflareApiError.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage { // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage|null[0]
+    constructor <init>(kotlin/Int = ..., kotlin/String = ...) // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.<init>|<init>(kotlin.Int;kotlin.String){}[0]
+
+    final val code // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.code|{}code[0]
+        final fun <get-code>(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.code.<get-code>|<get-code>(){}[0]
+    final val message // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.message|{}message[0]
+        final fun <get-message>(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.message.<get-message>|<get-message>(){}[0]
+
+    final fun component1(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.component2|component2(){}[0]
+    final fun copy(kotlin/Int = ..., kotlin/String = ...): io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.copy|copy(kotlin.Int;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage> { // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage) // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.core.api.CloudflareApiMessage){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage> // io.github.androidpoet.cloudflare.core.api/CloudflareApiMessage.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo { // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo|null[0]
+    constructor <init>(kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/String? = ...) // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.<init>|<init>(kotlin.Int?;kotlin.Int?;kotlin.Int?;kotlin.Int?;kotlin.Int?;kotlin.String?){}[0]
+
+    final val count // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.count|{}count[0]
+        final fun <get-count>(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.count.<get-count>|<get-count>(){}[0]
+    final val cursor // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.cursor|{}cursor[0]
+        final fun <get-cursor>(): kotlin/String? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.cursor.<get-cursor>|<get-cursor>(){}[0]
+    final val page // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.page|{}page[0]
+        final fun <get-page>(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.page.<get-page>|<get-page>(){}[0]
+    final val perPage // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.perPage|{}perPage[0]
+        final fun <get-perPage>(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.perPage.<get-perPage>|<get-perPage>(){}[0]
+    final val totalCount // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.totalCount|{}totalCount[0]
+        final fun <get-totalCount>(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.totalCount.<get-totalCount>|<get-totalCount>(){}[0]
+    final val totalPages // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.totalPages|{}totalPages[0]
+        final fun <get-totalPages>(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.totalPages.<get-totalPages>|<get-totalPages>(){}[0]
+
+    final fun component1(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.component1|component1(){}[0]
+    final fun component2(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.component2|component2(){}[0]
+    final fun component3(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.component3|component3(){}[0]
+    final fun component4(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.component4|component4(){}[0]
+    final fun component5(): kotlin/Int? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.component5|component5(){}[0]
+    final fun component6(): kotlin/String? // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.component6|component6(){}[0]
+    final fun copy(kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/String? = ...): io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.copy|copy(kotlin.Int?;kotlin.Int?;kotlin.Int?;kotlin.Int?;kotlin.Int?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo> { // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo) // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.core.api.CloudflareResultInfo){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo> // io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.core.auth/CloudflareSession { // io.github.androidpoet.cloudflare.core.auth/CloudflareSession|null[0]
+    constructor <init>(kotlin/String) // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.<init>|<init>(kotlin.String){}[0]
+
+    final val accessToken // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.accessToken|{}accessToken[0]
+        final fun <get-accessToken>(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.accessToken.<get-accessToken>|<get-accessToken>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.component1|component1(){}[0]
+    final fun copy(kotlin/String = ...): io.github.androidpoet.cloudflare.core.auth/CloudflareSession // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.copy|copy(kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.auth/CloudflareSession.toString|toString(){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.core.result/CloudflareError { // io.github.androidpoet.cloudflare.core.result/CloudflareError|null[0]
+    constructor <init>(kotlin/String, kotlin/Int? = ..., kotlin/String? = ..., io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory = ..., kotlin/Throwable? = ...) // io.github.androidpoet.cloudflare.core.result/CloudflareError.<init>|<init>(kotlin.String;kotlin.Int?;kotlin.String?;io.github.androidpoet.cloudflare.core.result.CloudflareErrorCategory;kotlin.Throwable?){}[0]
+
+    final val category // io.github.androidpoet.cloudflare.core.result/CloudflareError.category|{}category[0]
+        final fun <get-category>(): io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory // io.github.androidpoet.cloudflare.core.result/CloudflareError.category.<get-category>|<get-category>(){}[0]
+    final val cause // io.github.androidpoet.cloudflare.core.result/CloudflareError.cause|{}cause[0]
+        final fun <get-cause>(): kotlin/Throwable? // io.github.androidpoet.cloudflare.core.result/CloudflareError.cause.<get-cause>|<get-cause>(){}[0]
+    final val code // io.github.androidpoet.cloudflare.core.result/CloudflareError.code|{}code[0]
+        final fun <get-code>(): kotlin/String? // io.github.androidpoet.cloudflare.core.result/CloudflareError.code.<get-code>|<get-code>(){}[0]
+    final val message // io.github.androidpoet.cloudflare.core.result/CloudflareError.message|{}message[0]
+        final fun <get-message>(): kotlin/String // io.github.androidpoet.cloudflare.core.result/CloudflareError.message.<get-message>|<get-message>(){}[0]
+    final val statusCode // io.github.androidpoet.cloudflare.core.result/CloudflareError.statusCode|{}statusCode[0]
+        final fun <get-statusCode>(): kotlin/Int? // io.github.androidpoet.cloudflare.core.result/CloudflareError.statusCode.<get-statusCode>|<get-statusCode>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.core.result/CloudflareError.component1|component1(){}[0]
+    final fun component2(): kotlin/Int? // io.github.androidpoet.cloudflare.core.result/CloudflareError.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.androidpoet.cloudflare.core.result/CloudflareError.component3|component3(){}[0]
+    final fun component4(): io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory // io.github.androidpoet.cloudflare.core.result/CloudflareError.component4|component4(){}[0]
+    final fun component5(): kotlin/Throwable? // io.github.androidpoet.cloudflare.core.result/CloudflareError.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int? = ..., kotlin/String? = ..., io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory = ..., kotlin/Throwable? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareError // io.github.androidpoet.cloudflare.core.result/CloudflareError.copy|copy(kotlin.String;kotlin.Int?;kotlin.String?;io.github.androidpoet.cloudflare.core.result.CloudflareErrorCategory;kotlin.Throwable?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core.result/CloudflareError.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core.result/CloudflareError.hashCode|hashCode(){}[0]
+    final fun toException(): io.github.androidpoet.cloudflare.core.result/CloudflareException // io.github.androidpoet.cloudflare.core.result/CloudflareError.toException|toException(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core.result/CloudflareError.toString|toString(){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.core.result/CloudflareException : kotlin/Exception { // io.github.androidpoet.cloudflare.core.result/CloudflareException|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.core.result/CloudflareError) // io.github.androidpoet.cloudflare.core.result/CloudflareException.<init>|<init>(io.github.androidpoet.cloudflare.core.result.CloudflareError){}[0]
+
+    final val error // io.github.androidpoet.cloudflare.core.result/CloudflareException.error|{}error[0]
+        final fun <get-error>(): io.github.androidpoet.cloudflare.core.result/CloudflareError // io.github.androidpoet.cloudflare.core.result/CloudflareException.error.<get-error>|<get-error>(){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.core/CloudflareApiConfig { // io.github.androidpoet.cloudflare.core/CloudflareApiConfig|null[0]
+    constructor <init>(kotlin/String, io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials, kotlin/String = ...) // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.<init>|<init>(kotlin.String;io.github.androidpoet.cloudflare.core.auth.CloudflareCredentials;kotlin.String){}[0]
+
+    final val accountId // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.accountId|{}accountId[0]
+        final fun <get-accountId>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.accountId.<get-accountId>|<get-accountId>(){}[0]
+    final val baseUrl // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.baseUrl|{}baseUrl[0]
+        final fun <get-baseUrl>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.baseUrl.<get-baseUrl>|<get-baseUrl>(){}[0]
+    final val credentials // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.credentials|{}credentials[0]
+        final fun <get-credentials>(): io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.credentials.<get-credentials>|<get-credentials>(){}[0]
+    final val normalizedBaseUrl // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.normalizedBaseUrl|{}normalizedBaseUrl[0]
+        final fun <get-normalizedBaseUrl>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.normalizedBaseUrl.<get-normalizedBaseUrl>|<get-normalizedBaseUrl>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.component1|component1(){}[0]
+    final fun component2(): io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.component2|component2(){}[0]
+    final fun component3(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., io.github.androidpoet.cloudflare.core.auth/CloudflareCredentials = ..., kotlin/String = ...): io.github.androidpoet.cloudflare.core/CloudflareApiConfig // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.copy|copy(kotlin.String;io.github.androidpoet.cloudflare.core.auth.CloudflareCredentials;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.toString|toString(){}[0]
+
+    final object Companion { // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.Companion|null[0]
+        final const val DEFAULT_BASE_URL // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.Companion.DEFAULT_BASE_URL|{}DEFAULT_BASE_URL[0]
+            final fun <get-DEFAULT_BASE_URL>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareApiConfig.Companion.DEFAULT_BASE_URL.<get-DEFAULT_BASE_URL>|<get-DEFAULT_BASE_URL>(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.core/CloudflareConfig { // io.github.androidpoet.cloudflare.core/CloudflareConfig|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin.coroutines/SuspendFunction0<kotlin/String?> = ...) // io.github.androidpoet.cloudflare.core/CloudflareConfig.<init>|<init>(kotlin.String;kotlin.String;kotlin.coroutines.SuspendFunction0<kotlin.String?>){}[0]
+
+    final val accessTokenProvider // io.github.androidpoet.cloudflare.core/CloudflareConfig.accessTokenProvider|{}accessTokenProvider[0]
+        final fun <get-accessTokenProvider>(): kotlin.coroutines/SuspendFunction0<kotlin/String?> // io.github.androidpoet.cloudflare.core/CloudflareConfig.accessTokenProvider.<get-accessTokenProvider>|<get-accessTokenProvider>(){}[0]
+    final val normalizedWorkerUrl // io.github.androidpoet.cloudflare.core/CloudflareConfig.normalizedWorkerUrl|{}normalizedWorkerUrl[0]
+        final fun <get-normalizedWorkerUrl>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareConfig.normalizedWorkerUrl.<get-normalizedWorkerUrl>|<get-normalizedWorkerUrl>(){}[0]
+    final val publishableKey // io.github.androidpoet.cloudflare.core/CloudflareConfig.publishableKey|{}publishableKey[0]
+        final fun <get-publishableKey>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareConfig.publishableKey.<get-publishableKey>|<get-publishableKey>(){}[0]
+    final val workerUrl // io.github.androidpoet.cloudflare.core/CloudflareConfig.workerUrl|{}workerUrl[0]
+        final fun <get-workerUrl>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareConfig.workerUrl.<get-workerUrl>|<get-workerUrl>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareConfig.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareConfig.component2|component2(){}[0]
+    final fun component3(): kotlin.coroutines/SuspendFunction0<kotlin/String?> // io.github.androidpoet.cloudflare.core/CloudflareConfig.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin.coroutines/SuspendFunction0<kotlin/String?> = ...): io.github.androidpoet.cloudflare.core/CloudflareConfig // io.github.androidpoet.cloudflare.core/CloudflareConfig.copy|copy(kotlin.String;kotlin.String;kotlin.coroutines.SuspendFunction0<kotlin.String?>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.core/CloudflareConfig.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.core/CloudflareConfig.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareConfig.toString|toString(){}[0]
+}
+
+final object io.github.androidpoet.cloudflare.core/CloudflareHeaders { // io.github.androidpoet.cloudflare.core/CloudflareHeaders|null[0]
+    final const val AUTHORIZATION // io.github.androidpoet.cloudflare.core/CloudflareHeaders.AUTHORIZATION|{}AUTHORIZATION[0]
+        final fun <get-AUTHORIZATION>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareHeaders.AUTHORIZATION.<get-AUTHORIZATION>|<get-AUTHORIZATION>(){}[0]
+    final const val CONTENT_TYPE // io.github.androidpoet.cloudflare.core/CloudflareHeaders.CONTENT_TYPE|{}CONTENT_TYPE[0]
+        final fun <get-CONTENT_TYPE>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareHeaders.CONTENT_TYPE.<get-CONTENT_TYPE>|<get-CONTENT_TYPE>(){}[0]
+    final const val PUBLISHABLE_KEY // io.github.androidpoet.cloudflare.core/CloudflareHeaders.PUBLISHABLE_KEY|{}PUBLISHABLE_KEY[0]
+        final fun <get-PUBLISHABLE_KEY>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareHeaders.PUBLISHABLE_KEY.<get-PUBLISHABLE_KEY>|<get-PUBLISHABLE_KEY>(){}[0]
+    final const val R2_JURISDICTION // io.github.androidpoet.cloudflare.core/CloudflareHeaders.R2_JURISDICTION|{}R2_JURISDICTION[0]
+        final fun <get-R2_JURISDICTION>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareHeaders.R2_JURISDICTION.<get-R2_JURISDICTION>|<get-R2_JURISDICTION>(){}[0]
+    final const val X_AUTH_EMAIL // io.github.androidpoet.cloudflare.core/CloudflareHeaders.X_AUTH_EMAIL|{}X_AUTH_EMAIL[0]
+        final fun <get-X_AUTH_EMAIL>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareHeaders.X_AUTH_EMAIL.<get-X_AUTH_EMAIL>|<get-X_AUTH_EMAIL>(){}[0]
+    final const val X_AUTH_KEY // io.github.androidpoet.cloudflare.core/CloudflareHeaders.X_AUTH_KEY|{}X_AUTH_KEY[0]
+        final fun <get-X_AUTH_KEY>(): kotlin/String // io.github.androidpoet.cloudflare.core/CloudflareHeaders.X_AUTH_KEY.<get-X_AUTH_KEY>|<get-X_AUTH_KEY>(){}[0]
+}
+
+final inline fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/flatMap(kotlin/Function1<#A, io.github.androidpoet.cloudflare.core.result/CloudflareResult<#B>>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#B> // io.github.androidpoet.cloudflare.core.result/flatMap|flatMap@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<0:0,io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:1>>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/map(kotlin/Function1<#A, #B>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#B> // io.github.androidpoet.cloudflare.core.result/map|map@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/getOrElse(kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, #A>): #A // io.github.androidpoet.cloudflare.core.result/getOrElse|getOrElse@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,0:0>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/onFailure(kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, kotlin/Unit>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/onFailure|onFailure@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/onFailureCategory(io.github.androidpoet.cloudflare.core.result/CloudflareErrorCategory, kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, kotlin/Unit>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/onFailureCategory|onFailureCategory@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(io.github.androidpoet.cloudflare.core.result.CloudflareErrorCategory;kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/onNotFound(kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, kotlin/Unit>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/onNotFound|onNotFound@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/onRateLimited(kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, kotlin/Unit>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/onRateLimited|onRateLimited@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/onSuccess(kotlin/Function1<#A, kotlin/Unit>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/onSuccess|onSuccess@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<0:0,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/onUnauthorized(kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, kotlin/Unit>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/onUnauthorized|onUnauthorized@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A>).io.github.androidpoet.cloudflare.core.result/recover(kotlin/Function1<io.github.androidpoet.cloudflare.core.result/CloudflareError, #A>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.core.result/recover|recover@io.github.androidpoet.cloudflare.core.result.CloudflareResult<0:0>(kotlin.Function1<io.github.androidpoet.cloudflare.core.result.CloudflareError,0:0>){0§<kotlin.Any?>}[0]

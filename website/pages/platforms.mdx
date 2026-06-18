@@ -1,0 +1,43 @@
+---
+title: Platforms
+description: Which Kotlin Multiplatform targets Cloudflare KMP supports and which Ktor HTTP engine each one uses.
+---
+
+# Platforms
+
+Cloudflare KMP is pure-Kotlin and HTTP-based, so it runs anywhere Ktor runs. The
+SDK modules publish the following Kotlin Multiplatform targets:
+
+| Target              | Status      | Ktor engine        |
+| ------------------- | ----------- | ------------------ |
+| Android             | Supported   | OkHttp             |
+| JVM (Desktop / server) | Supported | OkHttp             |
+| iOS (arm64, x64, simulator arm64) | Supported | Darwin |
+| Wasm (browser)      | Supported   | JS / Fetch         |
+
+There is no native desktop (macOS/Linux/Windows) target yet; the JVM artifact
+covers desktop use. Because the transport is plain HTTPS plus WebSockets, adding
+further Ktor-supported targets is mostly a matter of wiring an engine.
+
+## Engine selection
+
+Each target's `*Main` source set binds the appropriate Ktor client engine:
+
+- `androidMain` / `jvmMain` → `ktor-client-okhttp`
+- `appleMain` (iOS) → `ktor-client-darwin`
+- `wasmJsMain` → `ktor-client-js`
+
+The shared `commonMain` code only depends on `ktor-client-core`, so the public
+API is identical on every platform.
+
+## Realtime support
+
+The realtime WebSocket client uses Ktor's WebSocket support, which is available
+on every target above. On the browser (Wasm) it uses the native `WebSocket`;
+elsewhere it uses the engine's socket implementation.
+
+## Binary compatibility
+
+The public API (ABI) of every published module is tracked for JVM, Android and
+the Kotlin klib (iOS + Wasm) so an accidental public-API break is caught in
+review rather than by consumers.

@@ -1,0 +1,116 @@
+public abstract interface class io/github/androidpoet/cloudflare/realtime/ConnectionState {
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/ConnectionState$Connected : io/github/androidpoet/cloudflare/realtime/ConnectionState {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/realtime/ConnectionState$Connected;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/ConnectionState$Connecting : io/github/androidpoet/cloudflare/realtime/ConnectionState {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/realtime/ConnectionState$Connecting;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/ConnectionState$Disconnected : io/github/androidpoet/cloudflare/realtime/ConnectionState {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/realtime/ConnectionState$Disconnected;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/ConnectionState$Failed : io/github/androidpoet/cloudflare/realtime/ConnectionState {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/androidpoet/cloudflare/realtime/ConnectionState$Failed;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/realtime/ConnectionState$Failed;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/realtime/ConnectionState$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class io/github/androidpoet/cloudflare/realtime/RealtimeClient {
+	public abstract fun broadcast (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun connect (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun disconnect (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConnectionState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun subscribe (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/RealtimeClientKt {
+	public static final fun createRealtimeClient (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Z)Lio/github/androidpoet/cloudflare/realtime/RealtimeClient;
+	public static synthetic fun createRealtimeClient$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ZILjava/lang/Object;)Lio/github/androidpoet/cloudflare/realtime/RealtimeClient;
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/RealtimeEvent {
+	public static final field Companion Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChannel ()Ljava/lang/String;
+	public final fun getPayload ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/realtime/RealtimeEvent$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/realtime/RealtimeEvent;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/RealtimeEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/RealtimeMessage {
+	public static final field Companion Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChannel ()Ljava/lang/String;
+	public final fun getEvent ()Ljava/lang/String;
+	public final fun getPayload ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/realtime/RealtimeMessage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/realtime/RealtimeMessage;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/realtime/RealtimeMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class io/github/androidpoet/cloudflare/realtime/RealtimeSubscription {
+	public abstract fun getChannel ()Ljava/lang/String;
+	public abstract fun unsubscribe (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

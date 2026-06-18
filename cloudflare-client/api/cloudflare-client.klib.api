@@ -1,0 +1,80 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloudflare-kmp:cloudflare-client>
+abstract interface io.github.androidpoet.cloudflare.client/CloudflareClient { // io.github.androidpoet.cloudflare.client/CloudflareClient|null[0]
+    abstract fun close() // io.github.androidpoet.cloudflare.client/CloudflareClient.close|close(){}[0]
+    abstract suspend fun delete(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClient.delete|delete(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract suspend fun get(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClient.get|get(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract suspend fun patch(kotlin/String, kotlin/String? = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClient.patch|patch(kotlin.String;kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    abstract suspend fun post(kotlin/String, kotlin/String? = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClient.post|post(kotlin.String;kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+}
+
+final class <#A: out kotlin/Any?> io.github.androidpoet.cloudflare.client.api/CloudflarePage { // io.github.androidpoet.cloudflare.client.api/CloudflarePage|null[0]
+    constructor <init>(#A, io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? = ...) // io.github.androidpoet.cloudflare.client.api/CloudflarePage.<init>|<init>(1:0;io.github.androidpoet.cloudflare.core.api.CloudflareResultInfo?){}[0]
+
+    final val result // io.github.androidpoet.cloudflare.client.api/CloudflarePage.result|{}result[0]
+        final fun <get-result>(): #A // io.github.androidpoet.cloudflare.client.api/CloudflarePage.result.<get-result>|<get-result>(){}[0]
+    final val resultInfo // io.github.androidpoet.cloudflare.client.api/CloudflarePage.resultInfo|{}resultInfo[0]
+        final fun <get-resultInfo>(): io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? // io.github.androidpoet.cloudflare.client.api/CloudflarePage.resultInfo.<get-resultInfo>|<get-resultInfo>(){}[0]
+
+    final fun component1(): #A // io.github.androidpoet.cloudflare.client.api/CloudflarePage.component1|component1(){}[0]
+    final fun component2(): io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? // io.github.androidpoet.cloudflare.client.api/CloudflarePage.component2|component2(){}[0]
+    final fun copy(#A = ..., io.github.androidpoet.cloudflare.core.api/CloudflareResultInfo? = ...): io.github.androidpoet.cloudflare.client.api/CloudflarePage<#A> // io.github.androidpoet.cloudflare.client.api/CloudflarePage.copy|copy(1:0;io.github.androidpoet.cloudflare.core.api.CloudflareResultInfo?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.client.api/CloudflarePage.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.client.api/CloudflarePage.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.client.api/CloudflarePage.toString|toString(){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.client.api/CloudflareApiClient { // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.core/CloudflareApiConfig) // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.<init>|<init>(io.github.androidpoet.cloudflare.core.CloudflareApiConfig){}[0]
+
+    final val accountId // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.accountId|{}accountId[0]
+        final fun <get-accountId>(): kotlin/String // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.accountId.<get-accountId>|<get-accountId>(){}[0]
+    final val config // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.config|{}config[0]
+        final fun <get-config>(): io.github.androidpoet.cloudflare.core/CloudflareApiConfig // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.config.<get-config>|<get-config>(){}[0]
+
+    final fun close() // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.close|close(){}[0]
+    final suspend fun delete(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.delete|delete(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final suspend fun get(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.get|get(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final suspend fun post(kotlin/String, kotlin/String? = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.post|post(kotlin.String;kotlin.String?;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final suspend fun put(kotlin/String, kotlin/String? = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.put|put(kotlin.String;kotlin.String?;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+    final object Companion { // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion|null[0]
+        final const val JSON_CONTENT_TYPE // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion.JSON_CONTENT_TYPE|{}JSON_CONTENT_TYPE[0]
+            final fun <get-JSON_CONTENT_TYPE>(): kotlin/String // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion.JSON_CONTENT_TYPE.<get-JSON_CONTENT_TYPE>|<get-JSON_CONTENT_TYPE>(){}[0]
+        final const val TEXT_CONTENT_TYPE // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion.TEXT_CONTENT_TYPE|{}TEXT_CONTENT_TYPE[0]
+            final fun <get-TEXT_CONTENT_TYPE>(): kotlin/String // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion.TEXT_CONTENT_TYPE.<get-TEXT_CONTENT_TYPE>|<get-TEXT_CONTENT_TYPE>(){}[0]
+
+        final fun withApiKey(kotlin/String, kotlin/String, kotlin/String, kotlin/String = ...): io.github.androidpoet.cloudflare.client.api/CloudflareApiClient // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion.withApiKey|withApiKey(kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
+        final fun withToken(kotlin/String, kotlin/String, kotlin/String = ...): io.github.androidpoet.cloudflare.client.api/CloudflareApiClient // io.github.androidpoet.cloudflare.client.api/CloudflareApiClient.Companion.withToken|withToken(kotlin.String;kotlin.String;kotlin.String){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.client/CloudflareClientImpl : io.github.androidpoet.cloudflare.client/CloudflareClient { // io.github.androidpoet.cloudflare.client/CloudflareClientImpl|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.core/CloudflareConfig) // io.github.androidpoet.cloudflare.client/CloudflareClientImpl.<init>|<init>(io.github.androidpoet.cloudflare.core.CloudflareConfig){}[0]
+
+    final fun close() // io.github.androidpoet.cloudflare.client/CloudflareClientImpl.close|close(){}[0]
+    final suspend fun delete(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String>, kotlin.collections/Map<kotlin/String, kotlin/String>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClientImpl.delete|delete(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final suspend fun get(kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/String>, kotlin.collections/Map<kotlin/String, kotlin/String>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClientImpl.get|get(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final suspend fun patch(kotlin/String, kotlin/String?, kotlin.collections/Map<kotlin/String, kotlin/String>, kotlin.collections/Map<kotlin/String, kotlin/String>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClientImpl.patch|patch(kotlin.String;kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final suspend fun post(kotlin/String, kotlin/String?, kotlin.collections/Map<kotlin/String, kotlin/String>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.client/CloudflareClientImpl.post|post(kotlin.String;kotlin.String?;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+}
+
+final val io.github.androidpoet.cloudflare.client/defaultCloudflareJson // io.github.androidpoet.cloudflare.client/defaultCloudflareJson|{}defaultCloudflareJson[0]
+    final fun <get-defaultCloudflareJson>(): kotlinx.serialization.json/Json // io.github.androidpoet.cloudflare.client/defaultCloudflareJson.<get-defaultCloudflareJson>|<get-defaultCloudflareJson>(){}[0]
+
+final fun (io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String>).io.github.androidpoet.cloudflare.client.api/decodeEnvelopeUnit(kotlinx.serialization.json/Json = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Unit> // io.github.androidpoet.cloudflare.client.api/decodeEnvelopeUnit|decodeEnvelopeUnit@io.github.androidpoet.cloudflare.core.result.CloudflareResult<kotlin.String>(kotlinx.serialization.json.Json){}[0]
+final fun io.github.androidpoet.cloudflare.client.api/encodeUrlPathPart(kotlin/String): kotlin/String // io.github.androidpoet.cloudflare.client.api/encodeUrlPathPart|encodeUrlPathPart(kotlin.String){}[0]
+final fun io.github.androidpoet.cloudflare.client.transport/defaultPlatformEngine(): io.ktor.client.engine/HttpClientEngineFactory<*> // io.github.androidpoet.cloudflare.client.transport/defaultPlatformEngine|defaultPlatformEngine(){}[0]
+final fun io.github.androidpoet.cloudflare.client/createCloudflareClient(kotlin/String, kotlin/String, kotlin.coroutines/SuspendFunction0<kotlin/String?> = ...): io.github.androidpoet.cloudflare.client/CloudflareClient // io.github.androidpoet.cloudflare.client/createCloudflareClient|createCloudflareClient(kotlin.String;kotlin.String;kotlin.coroutines.SuspendFunction0<kotlin.String?>){}[0]
+final inline fun <#A: reified kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String>).io.github.androidpoet.cloudflare.client.api/decodeEnvelope(kotlinx.serialization.json/Json = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.client.api/decodeEnvelope|decodeEnvelope@io.github.androidpoet.cloudflare.core.result.CloudflareResult<kotlin.String>(kotlinx.serialization.json.Json){0§<kotlin.Any?>}[0]
+final inline fun <#A: reified kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String>).io.github.androidpoet.cloudflare.client.api/decodeEnvelopeList(kotlinx.serialization.json/Json = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin.collections/List<#A>> // io.github.androidpoet.cloudflare.client.api/decodeEnvelopeList|decodeEnvelopeList@io.github.androidpoet.cloudflare.core.result.CloudflareResult<kotlin.String>(kotlinx.serialization.json.Json){0§<kotlin.Any?>}[0]
+final inline fun <#A: reified kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String>).io.github.androidpoet.cloudflare.client.api/decodeEnvelopeListPage(kotlinx.serialization.json/Json = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.client.api/CloudflarePage<kotlin.collections/List<#A>>> // io.github.androidpoet.cloudflare.client.api/decodeEnvelopeListPage|decodeEnvelopeListPage@io.github.androidpoet.cloudflare.core.result.CloudflareResult<kotlin.String>(kotlinx.serialization.json.Json){0§<kotlin.Any?>}[0]
+final inline fun <#A: reified kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String>).io.github.androidpoet.cloudflare.client.api/decodeEnvelopePage(kotlinx.serialization.json/Json = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.client.api/CloudflarePage<#A>> // io.github.androidpoet.cloudflare.client.api/decodeEnvelopePage|decodeEnvelopePage@io.github.androidpoet.cloudflare.core.result.CloudflareResult<kotlin.String>(kotlinx.serialization.json.Json){0§<kotlin.Any?>}[0]
+final inline fun <#A: reified kotlin/Any?> (io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String>).io.github.androidpoet.cloudflare.client/decodeJson(kotlinx.serialization.json/Json = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A> // io.github.androidpoet.cloudflare.client/decodeJson|decodeJson@io.github.androidpoet.cloudflare.core.result.CloudflareResult<kotlin.String>(kotlinx.serialization.json.Json){0§<kotlin.Any?>}[0]
+final inline fun <#A: reified kotlin/Any?> (kotlinx.serialization.json/Json).io.github.androidpoet.cloudflare.client/encodeBody(#A): kotlin/String // io.github.androidpoet.cloudflare.client/encodeBody|encodeBody@kotlinx.serialization.json.Json(0:0){0§<kotlin.Any?>}[0]

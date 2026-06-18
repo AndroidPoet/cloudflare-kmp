@@ -12,20 +12,22 @@ class RealtimeMessageTest {
 
     @Test
     fun test_subscribeMessage_omitsEventAndPayload() {
-        val encoded = json.encodeToString(
-            RealtimeMessage.serializer(),
-            RealtimeMessage(type = "subscribe", channel = "room:lobby"),
-        )
+        val encoded =
+            json.encodeToString(
+                RealtimeMessage.serializer(),
+                RealtimeMessage(type = "subscribe", channel = "room:lobby"),
+            )
         assertEquals("{\"type\":\"subscribe\",\"channel\":\"room:lobby\"}", encoded)
     }
 
     @Test
     fun test_broadcastMessage_includesEventAndPayload() {
         val payload = buildJsonObject { put("text", JsonPrimitive("hi")) }
-        val encoded = json.encodeToString(
-            RealtimeMessage.serializer(),
-            RealtimeMessage(type = "broadcast", channel = "room:lobby", event = "message", payload = payload),
-        )
+        val encoded =
+            json.encodeToString(
+                RealtimeMessage.serializer(),
+                RealtimeMessage(type = "broadcast", channel = "room:lobby", event = "message", payload = payload),
+            )
         assertTrue(encoded.contains("\"type\":\"broadcast\""))
         assertTrue(encoded.contains("\"event\":\"message\""))
         assertTrue(encoded.contains("\"text\":\"hi\""))

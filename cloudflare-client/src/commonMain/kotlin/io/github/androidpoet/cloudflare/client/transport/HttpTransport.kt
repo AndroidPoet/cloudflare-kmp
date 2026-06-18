@@ -29,66 +29,71 @@ internal class HttpTransport(
     private val config: CloudflareConfig,
     engineFactory: HttpClientEngineFactory<*>,
 ) {
-    private val client = HttpClient(engineFactory) {
-        expectSuccess = false
-        install(ContentNegotiation) {
-            json(
-                Json {
-                    ignoreUnknownKeys = true
-                    isLenient = true
-                    explicitNulls = false
-                },
-            )
+    private val client =
+        HttpClient(engineFactory) {
+            expectSuccess = false
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        ignoreUnknownKeys = true
+                        isLenient = true
+                        explicitNulls = false
+                    },
+                )
+            }
         }
-    }
 
     suspend fun get(
         endpoint: String,
         queryParams: Map<String, String>,
         requestHeaders: Map<String, String>,
-    ): CloudflareResult<String> = execute {
-        client.get(urlFor(endpoint)) {
-            addCloudflareHeaders(requestHeaders)
-            queryParams.forEach { (key, value) -> parameter(key, value) }
+    ): CloudflareResult<String> =
+        execute {
+            client.get(urlFor(endpoint)) {
+                addCloudflareHeaders(requestHeaders)
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+            }
         }
-    }
 
     suspend fun post(
         endpoint: String,
         body: String?,
         requestHeaders: Map<String, String>,
-    ): CloudflareResult<String> = execute {
-        client.post(urlFor(endpoint)) {
-            addCloudflareHeaders(requestHeaders)
-            contentType(ContentType.Application.Json)
-            if (body != null) setBody(body)
+    ): CloudflareResult<String> =
+        execute {
+            client.post(urlFor(endpoint)) {
+                addCloudflareHeaders(requestHeaders)
+                contentType(ContentType.Application.Json)
+                if (body != null) setBody(body)
+            }
         }
-    }
 
     suspend fun patch(
         endpoint: String,
         body: String?,
         queryParams: Map<String, String>,
         requestHeaders: Map<String, String>,
-    ): CloudflareResult<String> = execute {
-        client.patch(urlFor(endpoint)) {
-            addCloudflareHeaders(requestHeaders)
-            contentType(ContentType.Application.Json)
-            queryParams.forEach { (key, value) -> parameter(key, value) }
-            if (body != null) setBody(body)
+    ): CloudflareResult<String> =
+        execute {
+            client.patch(urlFor(endpoint)) {
+                addCloudflareHeaders(requestHeaders)
+                contentType(ContentType.Application.Json)
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+                if (body != null) setBody(body)
+            }
         }
-    }
 
     suspend fun delete(
         endpoint: String,
         queryParams: Map<String, String>,
         requestHeaders: Map<String, String>,
-    ): CloudflareResult<String> = execute {
-        client.delete(urlFor(endpoint)) {
-            addCloudflareHeaders(requestHeaders)
-            queryParams.forEach { (key, value) -> parameter(key, value) }
+    ): CloudflareResult<String> =
+        execute {
+            client.delete(urlFor(endpoint)) {
+                addCloudflareHeaders(requestHeaders)
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+            }
         }
-    }
 
     fun close() {
         client.close()

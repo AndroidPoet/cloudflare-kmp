@@ -1,0 +1,84 @@
+---
+title: Architecture
+description: Why Cloudflare KMP is an SDK-plus-gateway design rather than a direct REST wrapper, and how its modules fit together.
+---
+
+# Architecture
+
+Cloudflare KMP is **not** a direct Cloudflare REST API wrapper. It is an SDK
+plus gateway:
+
+```text
+Client app
+  -> cloudflare-kmp SDK
+  -> Cloudflare Worker gateway
+  -> Cloudflare bindings
+       - D1
+       - KV
+       - R2
+       - Durable Objects
+```
+
+## Why a Worker gateway exists
+
+Some backends expose an app-safe publishable key. Cloudflare account API tokens
+are **not** app-safe — they can administer D1, KV, R2 and your Workers. A mobile
+or web app must never hold such a credential.
+
+The Worker gateway gives the app a safe contract instead:
+
+```text
+workerUrl + publishableKey
+```
+
+The Worker reaches resources through bindings:
+
+```text
+env.DB           // D1 database
+env.APP_KV       // KV namespace
+env.MY_BUCKET    // R2 bucket
+env.REALTIME_ROOM // Durable Object namespace
+```
+
+A binding is both the permission and the API. The app cannot touch the resource
+directly — only the Worker can, and only the routes the Worker exposes.
+
+## SDK modules
+
+**`cloudflare-core`** — shared primitives:
+
+- `CloudflareConfig`
+- `CloudflareHeaders`
+- `CloudflareResult`
+- `CloudflareError`
+
+**`cloudflare-client`** — transport:
+
+- the Ktor HTTP client
+- the publishable-key header
+- optional bearer auth
+- typed JSON decode helpers and the direct `CloudflareApiClient`
+
+**Product modules** build on top:
+
+- `cloudflare-d1` — the table query API
+- `cloudflare-kv` — text and typed-JSON helpers
+- `cloudflare-r2` — signed URL client
+- `cloudflare-realtime` — WebSocket client
+
+You depend only on the modules you use; each one pulls in `cloudflare-core`.
+
+## Realtime design
+
+The intended realtime model routes through the Worker so writes can be
+broadcast:
+
+```text
+SDK WebSocket client
+  -> Worker /realtime/{room}
+  -> Durable Object per room/channel
+  -> broadcast, presence, table-change events
+```
+
+D1 has no built-in row-level realtime. To emit table-change events, writes pass
+through the Worker, which broadcasts the mutation after a successful write.

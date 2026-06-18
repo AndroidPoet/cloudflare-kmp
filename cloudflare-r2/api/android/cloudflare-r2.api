@@ -1,0 +1,153 @@
+public final class io/github/androidpoet/cloudflare/r2/R2Api {
+	public fun <init> (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;)V
+	public final fun createBucket (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun createBucket$default (Lio/github/androidpoet/cloudflare/r2/R2Api;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun deleteBucket (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun deleteBucket$default (Lio/github/androidpoet/cloudflare/r2/R2Api;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getBucket (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getBucket$default (Lio/github/androidpoet/cloudflare/r2/R2Api;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun listBuckets (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun listBuckets$default (Lio/github/androidpoet/cloudflare/r2/R2Api;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2ApiKt {
+	public static final fun r2 (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;)Lio/github/androidpoet/cloudflare/r2/R2Api;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2Bucket {
+	public static final field Companion Lio/github/androidpoet/cloudflare/r2/R2Bucket$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/r2/R2Bucket;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/r2/R2Bucket;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/r2/R2Bucket;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreationDate ()Ljava/lang/String;
+	public final fun getJurisdiction ()Ljava/lang/String;
+	public final fun getLocation ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getStorageClass ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/r2/R2Bucket$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/r2/R2Bucket$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/r2/R2Bucket;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/r2/R2Bucket;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2Bucket$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2BucketList {
+	public static final field Companion Lio/github/androidpoet/cloudflare/r2/R2BucketList$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lio/github/androidpoet/cloudflare/r2/R2BucketList;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/r2/R2BucketList;Ljava/util/List;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/r2/R2BucketList;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBuckets ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/r2/R2BucketList$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/r2/R2BucketList$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/r2/R2BucketList;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/r2/R2BucketList;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2BucketList$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2Client {
+	public fun <init> (Lio/github/androidpoet/cloudflare/client/CloudflareClient;)V
+	public final fun createDownloadUrl (Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun createDownloadUrl$default (Lio/github/androidpoet/cloudflare/r2/R2Client;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun createUploadUrl (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun createUploadUrl$default (Lio/github/androidpoet/cloudflare/r2/R2Client;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun deleteObject (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2ClientKt {
+	public static final fun r2 (Lio/github/androidpoet/cloudflare/client/CloudflareClient;)Lio/github/androidpoet/cloudflare/r2/R2Client;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2CreateBucketRequest {
+	public static final field Companion Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLocationHint ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getStorageClass ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/r2/R2CreateBucketRequest$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/r2/R2CreateBucketRequest;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2CreateBucketRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2SignedUrl {
+	public static final field Companion Lio/github/androidpoet/cloudflare/r2/R2SignedUrl$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;I)Lio/github/androidpoet/cloudflare/r2/R2SignedUrl;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/r2/R2SignedUrl;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lio/github/androidpoet/cloudflare/r2/R2SignedUrl;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpiresInSeconds ()I
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/r2/R2SignedUrl$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/r2/R2SignedUrl$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/r2/R2SignedUrl;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/r2/R2SignedUrl;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/r2/R2SignedUrl$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+

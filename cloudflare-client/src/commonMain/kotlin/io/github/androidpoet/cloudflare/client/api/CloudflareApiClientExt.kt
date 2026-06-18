@@ -38,38 +38,41 @@ public inline fun <reified T> CloudflareResult<String>.decodeEnvelopePage(
 internal fun <T> CloudflareResult<String>.decodeEnvelopePage(
     json: Json,
     elementSerializer: KSerializer<T>,
-): CloudflareResult<CloudflarePage<T>> = when (this) {
-    is CloudflareResult.Failure -> this
-    is CloudflareResult.Success -> try {
-        val envelope = json.decodeFromString(
-            CloudflareEnvelope.serializer(elementSerializer),
-            value,
-        )
-        if (!envelope.success) {
-            CloudflareResult.Failure(envelope.toError())
-        } else {
-            val result = envelope.result
-            if (result == null) {
+): CloudflareResult<CloudflarePage<T>> =
+    when (this) {
+        is CloudflareResult.Failure -> this
+        is CloudflareResult.Success ->
+            try {
+                val envelope =
+                    json.decodeFromString(
+                        CloudflareEnvelope.serializer(elementSerializer),
+                        value,
+                    )
+                if (!envelope.success) {
+                    CloudflareResult.Failure(envelope.toError())
+                } else {
+                    val result = envelope.result
+                    if (result == null) {
+                        CloudflareResult.Failure(
+                            CloudflareError(
+                                message = "Cloudflare response did not include a result.",
+                                category = CloudflareErrorCategory.Serialization,
+                            ),
+                        )
+                    } else {
+                        CloudflareResult.Success(CloudflarePage(result, envelope.resultInfo))
+                    }
+                }
+            } catch (exception: SerializationException) {
                 CloudflareResult.Failure(
                     CloudflareError(
-                        message = "Cloudflare response did not include a result.",
+                        message = exception.message ?: "Failed to decode Cloudflare envelope.",
                         category = CloudflareErrorCategory.Serialization,
+                        cause = exception,
                     ),
                 )
-            } else {
-                CloudflareResult.Success(CloudflarePage(result, envelope.resultInfo))
             }
-        }
-    } catch (exception: SerializationException) {
-        CloudflareResult.Failure(
-            CloudflareError(
-                message = exception.message ?: "Failed to decode Cloudflare envelope.",
-                category = CloudflareErrorCategory.Serialization,
-                cause = exception,
-            ),
-        )
     }
-}
 
 /** Decode an envelope and return only its `result` (discarding pagination metadata). */
 public inline fun <reified T> CloudflareResult<String>.decodeEnvelope(
@@ -92,34 +95,39 @@ public inline fun <reified T> CloudflareResult<String>.decodeEnvelopeList(
  */
 public fun CloudflareResult<String>.decodeEnvelopeUnit(
     json: Json = defaultCloudflareJson,
-): CloudflareResult<Unit> = when (this) {
-    is CloudflareResult.Failure -> this
-    is CloudflareResult.Success -> try {
-        val envelope = json.decodeFromString(
-            CloudflareEnvelope.serializer(JsonElement.serializer()),
-            value,
-        )
-        if (envelope.success) {
-            CloudflareResult.Success(Unit)
-        } else {
-            CloudflareResult.Failure(envelope.toError())
-        }
-    } catch (exception: SerializationException) {
-        CloudflareResult.Failure(
-            CloudflareError(
-                message = exception.message ?: "Failed to decode Cloudflare envelope.",
-                category = CloudflareErrorCategory.Serialization,
-                cause = exception,
-            ),
-        )
+): CloudflareResult<Unit> =
+    when (this) {
+        is CloudflareResult.Failure -> this
+        is CloudflareResult.Success ->
+            try {
+                val envelope =
+                    json.decodeFromString(
+                        CloudflareEnvelope.serializer(JsonElement.serializer()),
+                        value,
+                    )
+                if (envelope.success) {
+                    CloudflareResult.Success(Unit)
+                } else {
+                    CloudflareResult.Failure(envelope.toError())
+                }
+            } catch (exception: SerializationException) {
+                CloudflareResult.Failure(
+                    CloudflareError(
+                        message = exception.message ?: "Failed to decode Cloudflare envelope.",
+                        category = CloudflareErrorCategory.Serialization,
+                        cause = exception,
+                    ),
+                )
+            }
     }
-}
 
 @PublishedApi
 internal fun CloudflareEnvelope<*>.toError(): CloudflareError {
     val first = errors.firstOrNull()
-    val message = errors.joinToString("; ") { "${it.code}: ${it.message}" }
-        .ifBlank { "Cloudflare request was not successful." }
+    val message =
+        errors
+            .joinToString("; ") { "${it.code}: ${it.message}" }
+            .ifBlank { "Cloudflare request was not successful." }
     return CloudflareError(
         message = message,
         code = first?.code?.toString(),

@@ -1,0 +1,87 @@
+---
+title: Worker Gateway
+description: Deploy the Kotlin-authored Cloudflare Worker gateway, configure bindings, and learn the routes the SDK talks to.
+---
+
+# Worker Gateway
+
+The Worker gateway is the server-side half of Cloudflare KMP. It is authored in
+**Kotlin/JS**, compiled to an ES module, and exposed through a tiny module
+adapter so it runs as a modern Cloudflare module Worker.
+
+```text
+worker-template/src/jsMain/kotlin/.../Main.kt   // Kotlin entrypoint
+worker-template/src/worker.mjs                  // module adapter
+worker-template/wrangler.toml                   // points at src/worker.mjs
+```
+
+Authoring in Kotlin keeps the gateway logic in the same language as the SDK
+while still producing a standards-compliant module Worker.
+
+## Bindings
+
+The Worker reaches Cloudflare resources only through bindings declared in
+`wrangler.toml`:
+
+```toml
+name = "cloudflare-kmp-gateway"
+main = "src/worker.mjs"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "app"
+database_id = "..."
+
+[[kv_namespaces]]
+binding = "APP_KV"
+id = "..."
+
+[[r2_buckets]]
+binding = "MY_BUCKET"
+bucket_name = "avatars"
+```
+
+Inside the Worker these surface as `env.DB`, `env.APP_KV`, `env.MY_BUCKET`.
+
+## Routes
+
+The template implements these routes, which the SDK talks to:
+
+```text
+GET    /health
+GET    /d1/{table}?eq.id=123&limit=1
+POST   /d1/{table}
+PATCH  /d1/{table}?eq.id=123
+DELETE /d1/{table}?eq.id=123
+GET    /kv/{namespace}/{key}
+POST   /kv/{namespace}/{key}
+DELETE /kv/{namespace}/{key}
+```
+
+Each request must carry the publishable-key header; authenticated requests also
+carry a bearer token, which the Worker is free to verify before touching a
+binding.
+
+## Deploy
+
+From `worker-template/`:
+
+```bash
+# Compile the Kotlin/JS Worker
+./gradlew :worker-template:jsBrowserProductionWebpack
+
+# Dry-run, then deploy with Wrangler
+npx wrangler deploy --dry-run
+npx wrangler deploy
+```
+
+Set the publishable key and any user-auth secrets with `wrangler secret put`.
+
+## Current limitations
+
+- D1 filters: the Worker honours `eq.*` today. The SDK query builder is broader,
+  so the Worker can grow into the rest.
+- R2: the client URL shape exists, but Worker-side signing is not implemented.
+- Realtime: the client exists, but Durable Object WebSocket routing is not
+  implemented.

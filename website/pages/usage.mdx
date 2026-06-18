@@ -1,0 +1,108 @@
+---
+title: Usage
+description: The D1 table API, KV helpers, R2 client, realtime sockets and the direct Cloudflare REST client.
+---
+
+# Usage
+
+## D1 — Table API
+
+Query a table with a Supabase-style builder. Filters are typed and chainable:
+
+```kotlin
+@Serializable
+data class Todo(val id: String, val title: String, val done: Boolean)
+
+val todos: CloudflareResult<List<Todo>> = cloudflare
+    .d1()
+    .from("todos")
+    .select<Todo> {
+        eq("done", "false")
+        order("created_at", descending = true)
+        limit(25)
+    }
+```
+
+Insert, update and delete:
+
+```kotlin
+val created = cloudflare.d1().from("todos")
+    .insert(Todo(id = "todo_1", title = "Ship SDK", done = false))
+
+val updated = cloudflare.d1().from("todos")
+    .update(mapOf("done" to "true")) { eq("id", "todo_1") }
+
+val deleted = cloudflare.d1().from("todos")
+    .delete { eq("id", "todo_1") }
+```
+
+The query builder supports `eq`, `neq`, `gt`, `gte`, `lt`, `lte`, `order` and
+`limit`. The Worker template currently honours `eq.*` filters; the SDK shape is
+broader so the Worker can grow into it.
+
+## KV
+
+```kotlin
+val kv = cloudflare.kv()
+
+kv.putText("APP_KV", "settings/theme", "dark")
+val theme = kv.get("APP_KV", "settings/theme")
+```
+
+Typed JSON values:
+
+```kotlin
+@Serializable
+data class UserProfile(val name: String)
+
+val profile = kv.getJson<UserProfile>("APP_KV", "users/$userId/profile")
+```
+
+## R2
+
+The R2 client returns signed upload and download URLs that the app uses
+directly against R2. The signing itself happens in your Worker.
+
+```kotlin
+val r2 = cloudflare.r2()
+
+val upload = r2.signedUploadUrl(bucket = "avatars", key = "u/$userId.png")
+val download = r2.signedDownloadUrl(bucket = "avatars", key = "u/$userId.png")
+```
+
+> R2 client APIs exist and are stable in shape, but Worker-side signing is not
+> yet implemented in the template.
+
+## Realtime
+
+Connect a WebSocket to the Worker `/realtime` endpoint, subscribe to a channel,
+and broadcast. The client reconnects with backoff:
+
+```kotlin
+val realtime = cloudflare.realtime()
+
+realtime.connect()
+realtime.subscribe("room:lobby") { event ->
+    println("received: ${event.payload}")
+}
+realtime.broadcast("room:lobby", payload = """{"type":"hello"}""")
+```
+
+> Realtime client APIs exist, but the Durable Object WebSocket routing is not
+> yet implemented in the template.
+
+## Direct REST client (admin / server-side)
+
+For server-side or admin tooling, `CloudflareApiClient` calls the Cloudflare v4
+API directly and decodes the standard
+`{ success, errors, messages, result, result_info }` envelope:
+
+```kotlin
+val api = CloudflareApiClient(apiToken = "...", accountId = "...")
+
+val databases = api.listD1Databases()
+val namespaces = api.listKvNamespaces()
+val buckets = api.listR2Buckets()
+```
+
+Use this only where account tokens are safe to hold — never inside an app.

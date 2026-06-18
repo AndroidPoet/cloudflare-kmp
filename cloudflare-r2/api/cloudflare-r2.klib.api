@@ -1,0 +1,157 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloudflare-kmp:cloudflare-r2>
+final class io.github.androidpoet.cloudflare.r2/R2Api { // io.github.androidpoet.cloudflare.r2/R2Api|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.client.api/CloudflareApiClient) // io.github.androidpoet.cloudflare.r2/R2Api.<init>|<init>(io.github.androidpoet.cloudflare.client.api.CloudflareApiClient){}[0]
+
+    final suspend fun createBucket(kotlin/String, kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.r2/R2Bucket> // io.github.androidpoet.cloudflare.r2/R2Api.createBucket|createBucket(kotlin.String;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+    final suspend fun deleteBucket(kotlin/String, kotlin/String? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Unit> // io.github.androidpoet.cloudflare.r2/R2Api.deleteBucket|deleteBucket(kotlin.String;kotlin.String?){}[0]
+    final suspend fun getBucket(kotlin/String, kotlin/String? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.r2/R2Bucket> // io.github.androidpoet.cloudflare.r2/R2Api.getBucket|getBucket(kotlin.String;kotlin.String?){}[0]
+    final suspend fun listBuckets(kotlin/String? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin.collections/List<io.github.androidpoet.cloudflare.r2/R2Bucket>> // io.github.androidpoet.cloudflare.r2/R2Api.listBuckets|listBuckets(kotlin.String?){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.r2/R2Bucket { // io.github.androidpoet.cloudflare.r2/R2Bucket|null[0]
+    constructor <init>(kotlin/String, kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...) // io.github.androidpoet.cloudflare.r2/R2Bucket.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+
+    final val creationDate // io.github.androidpoet.cloudflare.r2/R2Bucket.creationDate|{}creationDate[0]
+        final fun <get-creationDate>(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.creationDate.<get-creationDate>|<get-creationDate>(){}[0]
+    final val jurisdiction // io.github.androidpoet.cloudflare.r2/R2Bucket.jurisdiction|{}jurisdiction[0]
+        final fun <get-jurisdiction>(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.jurisdiction.<get-jurisdiction>|<get-jurisdiction>(){}[0]
+    final val location // io.github.androidpoet.cloudflare.r2/R2Bucket.location|{}location[0]
+        final fun <get-location>(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.location.<get-location>|<get-location>(){}[0]
+    final val name // io.github.androidpoet.cloudflare.r2/R2Bucket.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2Bucket.name.<get-name>|<get-name>(){}[0]
+    final val storageClass // io.github.androidpoet.cloudflare.r2/R2Bucket.storageClass|{}storageClass[0]
+        final fun <get-storageClass>(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.storageClass.<get-storageClass>|<get-storageClass>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2Bucket.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.component3|component3(){}[0]
+    final fun component4(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.component4|component4(){}[0]
+    final fun component5(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2Bucket.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...): io.github.androidpoet.cloudflare.r2/R2Bucket // io.github.androidpoet.cloudflare.r2/R2Bucket.copy|copy(kotlin.String;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.r2/R2Bucket.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.r2/R2Bucket.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2Bucket.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.r2/R2Bucket> { // io.github.androidpoet.cloudflare.r2/R2Bucket.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.r2/R2Bucket.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.r2/R2Bucket.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.r2/R2Bucket.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.r2/R2Bucket // io.github.androidpoet.cloudflare.r2/R2Bucket.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.r2/R2Bucket) // io.github.androidpoet.cloudflare.r2/R2Bucket.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.r2.R2Bucket){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.r2/R2Bucket.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.r2/R2Bucket> // io.github.androidpoet.cloudflare.r2/R2Bucket.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.r2/R2BucketList { // io.github.androidpoet.cloudflare.r2/R2BucketList|null[0]
+    constructor <init>(kotlin.collections/List<io.github.androidpoet.cloudflare.r2/R2Bucket> = ...) // io.github.androidpoet.cloudflare.r2/R2BucketList.<init>|<init>(kotlin.collections.List<io.github.androidpoet.cloudflare.r2.R2Bucket>){}[0]
+
+    final val buckets // io.github.androidpoet.cloudflare.r2/R2BucketList.buckets|{}buckets[0]
+        final fun <get-buckets>(): kotlin.collections/List<io.github.androidpoet.cloudflare.r2/R2Bucket> // io.github.androidpoet.cloudflare.r2/R2BucketList.buckets.<get-buckets>|<get-buckets>(){}[0]
+
+    final fun component1(): kotlin.collections/List<io.github.androidpoet.cloudflare.r2/R2Bucket> // io.github.androidpoet.cloudflare.r2/R2BucketList.component1|component1(){}[0]
+    final fun copy(kotlin.collections/List<io.github.androidpoet.cloudflare.r2/R2Bucket> = ...): io.github.androidpoet.cloudflare.r2/R2BucketList // io.github.androidpoet.cloudflare.r2/R2BucketList.copy|copy(kotlin.collections.List<io.github.androidpoet.cloudflare.r2.R2Bucket>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.r2/R2BucketList.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.r2/R2BucketList.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2BucketList.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.r2/R2BucketList> { // io.github.androidpoet.cloudflare.r2/R2BucketList.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.r2/R2BucketList.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.r2/R2BucketList.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.r2/R2BucketList.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.r2/R2BucketList // io.github.androidpoet.cloudflare.r2/R2BucketList.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.r2/R2BucketList) // io.github.androidpoet.cloudflare.r2/R2BucketList.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.r2.R2BucketList){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.r2/R2BucketList.Companion|null[0]
+        final val $childSerializers // io.github.androidpoet.cloudflare.r2/R2BucketList.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.r2/R2BucketList> // io.github.androidpoet.cloudflare.r2/R2BucketList.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.r2/R2Client { // io.github.androidpoet.cloudflare.r2/R2Client|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.client/CloudflareClient) // io.github.androidpoet.cloudflare.r2/R2Client.<init>|<init>(io.github.androidpoet.cloudflare.client.CloudflareClient){}[0]
+
+    final suspend fun createDownloadUrl(kotlin/String, kotlin/String, kotlin/Int = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.r2/R2SignedUrl> // io.github.androidpoet.cloudflare.r2/R2Client.createDownloadUrl|createDownloadUrl(kotlin.String;kotlin.String;kotlin.Int){}[0]
+    final suspend fun createUploadUrl(kotlin/String, kotlin/String, kotlin/String, kotlin/Int = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.r2/R2SignedUrl> // io.github.androidpoet.cloudflare.r2/R2Client.createUploadUrl|createUploadUrl(kotlin.String;kotlin.String;kotlin.String;kotlin.Int){}[0]
+    final suspend fun deleteObject(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.r2/R2Client.deleteObject|deleteObject(kotlin.String;kotlin.String){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest { // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest|null[0]
+    constructor <init>(kotlin/String, kotlin/String? = ..., kotlin/String? = ...) // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String?){}[0]
+
+    final val locationHint // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.locationHint|{}locationHint[0]
+        final fun <get-locationHint>(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.locationHint.<get-locationHint>|<get-locationHint>(){}[0]
+    final val name // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.name.<get-name>|<get-name>(){}[0]
+    final val storageClass // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.storageClass|{}storageClass[0]
+        final fun <get-storageClass>(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.storageClass.<get-storageClass>|<get-storageClass>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.component1|component1(){}[0]
+    final fun component2(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ...): io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.copy|copy(kotlin.String;kotlin.String?;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest> { // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest) // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.r2.R2CreateBucketRequest){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest> // io.github.androidpoet.cloudflare.r2/R2CreateBucketRequest.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.r2/R2SignedUrl { // io.github.androidpoet.cloudflare.r2/R2SignedUrl|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Int) // io.github.androidpoet.cloudflare.r2/R2SignedUrl.<init>|<init>(kotlin.String;kotlin.String;kotlin.Int){}[0]
+
+    final val expiresInSeconds // io.github.androidpoet.cloudflare.r2/R2SignedUrl.expiresInSeconds|{}expiresInSeconds[0]
+        final fun <get-expiresInSeconds>(): kotlin/Int // io.github.androidpoet.cloudflare.r2/R2SignedUrl.expiresInSeconds.<get-expiresInSeconds>|<get-expiresInSeconds>(){}[0]
+    final val method // io.github.androidpoet.cloudflare.r2/R2SignedUrl.method|{}method[0]
+        final fun <get-method>(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2SignedUrl.method.<get-method>|<get-method>(){}[0]
+    final val url // io.github.androidpoet.cloudflare.r2/R2SignedUrl.url|{}url[0]
+        final fun <get-url>(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2SignedUrl.url.<get-url>|<get-url>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2SignedUrl.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2SignedUrl.component2|component2(){}[0]
+    final fun component3(): kotlin/Int // io.github.androidpoet.cloudflare.r2/R2SignedUrl.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Int = ...): io.github.androidpoet.cloudflare.r2/R2SignedUrl // io.github.androidpoet.cloudflare.r2/R2SignedUrl.copy|copy(kotlin.String;kotlin.String;kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.r2/R2SignedUrl.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.r2/R2SignedUrl.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.r2/R2SignedUrl.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.r2/R2SignedUrl> { // io.github.androidpoet.cloudflare.r2/R2SignedUrl.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.r2/R2SignedUrl.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.r2/R2SignedUrl.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.r2/R2SignedUrl.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.r2/R2SignedUrl // io.github.androidpoet.cloudflare.r2/R2SignedUrl.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.r2/R2SignedUrl) // io.github.androidpoet.cloudflare.r2/R2SignedUrl.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.r2.R2SignedUrl){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.r2/R2SignedUrl.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.r2/R2SignedUrl> // io.github.androidpoet.cloudflare.r2/R2SignedUrl.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final fun (io.github.androidpoet.cloudflare.client.api/CloudflareApiClient).io.github.androidpoet.cloudflare.r2/r2(): io.github.androidpoet.cloudflare.r2/R2Api // io.github.androidpoet.cloudflare.r2/r2|r2@io.github.androidpoet.cloudflare.client.api.CloudflareApiClient(){}[0]
+final fun (io.github.androidpoet.cloudflare.client/CloudflareClient).io.github.androidpoet.cloudflare.r2/r2(): io.github.androidpoet.cloudflare.r2/R2Client // io.github.androidpoet.cloudflare.r2/r2|r2@io.github.androidpoet.cloudflare.client.CloudflareClient(){}[0]

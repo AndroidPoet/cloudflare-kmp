@@ -6,11 +6,18 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class R2ModelsTest {
-    private val json = Json { ignoreUnknownKeys = true; isLenient = true; explicitNulls = false }
+    private val json =
+        Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+            explicitNulls = false
+        }
 
     @Test
     fun test_bucket_decodesSnakeCaseFields() {
-        val raw = """{"name":"avatars","creation_date":"2024-05-01T00:00:00Z","location":"wnam","storage_class":"Standard","jurisdiction":"default"}"""
+        val raw =
+            """{"name":"avatars","creation_date":"2024-05-01T00:00:00Z",""" +
+                """"location":"wnam","storage_class":"Standard","jurisdiction":"default"}"""
         val bucket = json.decodeFromString(R2Bucket.serializer(), raw)
 
         assertEquals("avatars", bucket.name)
@@ -30,10 +37,11 @@ class R2ModelsTest {
 
     @Test
     fun test_createRequest_serializesLocationHintAndStorageClass() {
-        val encoded = json.encodeToString(
-            R2CreateBucketRequest.serializer(),
-            R2CreateBucketRequest(name = "b", locationHint = "weur", storageClass = "InfrequentAccess"),
-        )
+        val encoded =
+            json.encodeToString(
+                R2CreateBucketRequest.serializer(),
+                R2CreateBucketRequest(name = "b", locationHint = "weur", storageClass = "InfrequentAccess"),
+            )
         assertTrue(encoded.contains("\"name\":\"b\""))
         assertTrue(encoded.contains("\"locationHint\":\"weur\""))
         assertTrue(encoded.contains("\"storageClass\":\"InfrequentAccess\""))
@@ -41,10 +49,11 @@ class R2ModelsTest {
 
     @Test
     fun test_createRequest_omitsNullOptionalFields() {
-        val encoded = json.encodeToString(
-            R2CreateBucketRequest.serializer(),
-            R2CreateBucketRequest(name = "b"),
-        )
+        val encoded =
+            json.encodeToString(
+                R2CreateBucketRequest.serializer(),
+                R2CreateBucketRequest(name = "b"),
+            )
         assertEquals("{\"name\":\"b\"}", encoded)
     }
 }

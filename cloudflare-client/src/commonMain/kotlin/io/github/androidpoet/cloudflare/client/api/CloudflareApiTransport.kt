@@ -31,20 +31,22 @@ internal class CloudflareApiTransport(
     private val config: CloudflareApiConfig,
     engineFactory: HttpClientEngineFactory<*>,
 ) {
-    private val client = HttpClient(engineFactory) {
-        expectSuccess = false
-    }
+    private val client =
+        HttpClient(engineFactory) {
+            expectSuccess = false
+        }
 
     suspend fun get(
         path: String,
         queryParams: Map<String, String> = emptyMap(),
         requestHeaders: Map<String, String> = emptyMap(),
-    ): CloudflareResult<String> = execute {
-        client.get(urlFor(path)) {
-            applyCommon(requestHeaders)
-            queryParams.forEach { (key, value) -> parameter(key, value) }
+    ): CloudflareResult<String> =
+        execute {
+            client.get(urlFor(path)) {
+                applyCommon(requestHeaders)
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+            }
         }
-    }
 
     suspend fun post(
         path: String,
@@ -52,14 +54,15 @@ internal class CloudflareApiTransport(
         contentType: String,
         queryParams: Map<String, String> = emptyMap(),
         requestHeaders: Map<String, String> = emptyMap(),
-    ): CloudflareResult<String> = execute {
-        client.post(urlFor(path)) {
-            applyCommon(requestHeaders)
-            contentType(ContentType.parse(contentType))
-            queryParams.forEach { (key, value) -> parameter(key, value) }
-            if (body != null) setBody(body)
+    ): CloudflareResult<String> =
+        execute {
+            client.post(urlFor(path)) {
+                applyCommon(requestHeaders)
+                contentType(ContentType.parse(contentType))
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+                if (body != null) setBody(body)
+            }
         }
-    }
 
     suspend fun put(
         path: String,
@@ -67,25 +70,27 @@ internal class CloudflareApiTransport(
         contentType: String,
         queryParams: Map<String, String> = emptyMap(),
         requestHeaders: Map<String, String> = emptyMap(),
-    ): CloudflareResult<String> = execute {
-        client.put(urlFor(path)) {
-            applyCommon(requestHeaders)
-            contentType(ContentType.parse(contentType))
-            queryParams.forEach { (key, value) -> parameter(key, value) }
-            if (body != null) setBody(body)
+    ): CloudflareResult<String> =
+        execute {
+            client.put(urlFor(path)) {
+                applyCommon(requestHeaders)
+                contentType(ContentType.parse(contentType))
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+                if (body != null) setBody(body)
+            }
         }
-    }
 
     suspend fun delete(
         path: String,
         queryParams: Map<String, String> = emptyMap(),
         requestHeaders: Map<String, String> = emptyMap(),
-    ): CloudflareResult<String> = execute {
-        client.delete(urlFor(path)) {
-            applyCommon(requestHeaders)
-            queryParams.forEach { (key, value) -> parameter(key, value) }
+    ): CloudflareResult<String> =
+        execute {
+            client.delete(urlFor(path)) {
+                applyCommon(requestHeaders)
+                queryParams.forEach { (key, value) -> parameter(key, value) }
+            }
         }
-    }
 
     fun close() {
         client.close()

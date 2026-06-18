@@ -1,0 +1,189 @@
+public final class io/github/androidpoet/cloudflare/kv/KvApi {
+	public fun <init> (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;)V
+	public final fun bulkDelete (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun bulkWrite (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun createNamespace (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deleteNamespace (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deleteValue (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getNamespace (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun listKeys (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun listKeys$default (Lio/github/androidpoet/cloudflare/kv/KvApi;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun listNamespaces (Ljava/lang/Integer;Ljava/lang/Integer;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun listNamespaces$default (Lio/github/androidpoet/cloudflare/kv/KvApi;Ljava/lang/Integer;Ljava/lang/Integer;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun readMetadata (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun readValue (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun renameNamespace (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun writeValue (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun writeValue$default (Lio/github/androidpoet/cloudflare/kv/KvApi;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvApiKt {
+	public static final fun kv (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;)Lio/github/androidpoet/cloudflare/kv/KvApi;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvBulkResult {
+	public static final field Companion Lio/github/androidpoet/cloudflare/kv/KvBulkResult$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Integer;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/Integer;Ljava/util/List;)Lio/github/androidpoet/cloudflare/kv/KvBulkResult;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/kv/KvBulkResult;Ljava/lang/Integer;Ljava/util/List;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/kv/KvBulkResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSuccessfulKeyCount ()Ljava/lang/Integer;
+	public final fun getUnsuccessfulKeys ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/kv/KvBulkResult$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/kv/KvBulkResult$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/kv/KvBulkResult;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/kv/KvBulkResult;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvBulkResult$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvBulkWriteEntry {
+	public static final field Companion Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;Ljava/lang/Boolean;)Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;Ljava/lang/Boolean;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBase64 ()Ljava/lang/Boolean;
+	public final fun getExpiration ()Ljava/lang/Long;
+	public final fun getExpirationTtl ()Ljava/lang/Long;
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getMetadata ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/kv/KvBulkWriteEntry$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/kv/KvBulkWriteEntry;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvBulkWriteEntry$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvClient {
+	public fun <init> (Lio/github/androidpoet/cloudflare/client/CloudflareClient;)V
+	public final fun delete (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun putText (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvClientKt {
+	public static final fun kv (Lio/github/androidpoet/cloudflare/client/CloudflareClient;)Lio/github/androidpoet/cloudflare/kv/KvClient;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvKey {
+	public static final field Companion Lio/github/androidpoet/cloudflare/kv/KvKey$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;)Lio/github/androidpoet/cloudflare/kv/KvKey;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/kv/KvKey;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/kv/KvKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExpiration ()Ljava/lang/Long;
+	public final fun getMetadata ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/kv/KvKey$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/kv/KvKey$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/kv/KvKey;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/kv/KvKey;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvKey$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvNamespace {
+	public static final field Companion Lio/github/androidpoet/cloudflare/kv/KvNamespace$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lio/github/androidpoet/cloudflare/kv/KvNamespace;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/kv/KvNamespace;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/kv/KvNamespace;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getSupportsUrlEncoding ()Ljava/lang/Boolean;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/kv/KvNamespace$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/kv/KvNamespace$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/kv/KvNamespace;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/kv/KvNamespace;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvNamespace$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvNamespaceRequest {
+	public static final field Companion Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/kv/KvNamespaceRequest$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/kv/KvNamespaceRequest;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/kv/KvNamespaceRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+

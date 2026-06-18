@@ -29,11 +29,12 @@ public class D1Api(
         page: Int? = null,
         perPage: Int? = null,
     ): CloudflareResult<CloudflarePage<List<D1Database>>> {
-        val query = buildMap {
-            name?.let { put("name", it) }
-            page?.let { put("page", it.toString()) }
-            perPage?.let { put("per_page", it.toString()) }
-        }
+        val query =
+            buildMap {
+                name?.let { put("name", it) }
+                page?.let { put("page", it.toString()) }
+                perPage?.let { put("per_page", it.toString()) }
+            }
         return client.get(basePath, queryParams = query).decodeEnvelopeListPage()
     }
 
@@ -42,9 +43,10 @@ public class D1Api(
         name: String,
         primaryLocationHint: String? = null,
     ): CloudflareResult<D1Database> {
-        val body = defaultCloudflareJson.encodeToString(
-            D1CreateDatabaseRequest(name = name, primaryLocationHint = primaryLocationHint),
-        )
+        val body =
+            defaultCloudflareJson.encodeToString(
+                D1CreateDatabaseRequest(name = name, primaryLocationHint = primaryLocationHint),
+            )
         return client.post(basePath, body = body).decodeEnvelope()
     }
 
@@ -83,9 +85,10 @@ public class D1Api(
         sql: String,
         params: List<String>,
     ): CloudflareResult<List<D1QueryResult>> {
-        val body = defaultCloudflareJson.encodeToString(
-            D1QueryRequest(sql = sql, params = params.ifEmpty { null }),
-        )
+        val body =
+            defaultCloudflareJson.encodeToString(
+                D1QueryRequest(sql = sql, params = params.ifEmpty { null }),
+            )
         return client.post(path, body = body).decodeEnvelope()
     }
 }
