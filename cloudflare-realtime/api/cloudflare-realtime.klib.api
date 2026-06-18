@@ -1,0 +1,126 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloudflare-kmp:cloudflare-realtime>
+abstract interface io.github.androidpoet.cloudflare.realtime/RealtimeClient { // io.github.androidpoet.cloudflare.realtime/RealtimeClient|null[0]
+    abstract val connectionState // io.github.androidpoet.cloudflare.realtime/RealtimeClient.connectionState|{}connectionState[0]
+        abstract fun <get-connectionState>(): kotlinx.coroutines.flow/StateFlow<io.github.androidpoet.cloudflare.realtime/ConnectionState> // io.github.androidpoet.cloudflare.realtime/RealtimeClient.connectionState.<get-connectionState>|<get-connectionState>(){}[0]
+
+    abstract suspend fun broadcast(kotlin/String, kotlin/String, kotlinx.serialization.json/JsonElement) // io.github.androidpoet.cloudflare.realtime/RealtimeClient.broadcast|broadcast(kotlin.String;kotlin.String;kotlinx.serialization.json.JsonElement){}[0]
+    abstract suspend fun connect() // io.github.androidpoet.cloudflare.realtime/RealtimeClient.connect|connect(){}[0]
+    abstract suspend fun disconnect() // io.github.androidpoet.cloudflare.realtime/RealtimeClient.disconnect|disconnect(){}[0]
+    abstract suspend fun subscribe(kotlin/String, kotlin.coroutines/SuspendFunction1<io.github.androidpoet.cloudflare.realtime/RealtimeEvent, kotlin/Unit>): io.github.androidpoet.cloudflare.realtime/RealtimeSubscription // io.github.androidpoet.cloudflare.realtime/RealtimeClient.subscribe|subscribe(kotlin.String;kotlin.coroutines.SuspendFunction1<io.github.androidpoet.cloudflare.realtime.RealtimeEvent,kotlin.Unit>){}[0]
+}
+
+abstract interface io.github.androidpoet.cloudflare.realtime/RealtimeSubscription { // io.github.androidpoet.cloudflare.realtime/RealtimeSubscription|null[0]
+    abstract val channel // io.github.androidpoet.cloudflare.realtime/RealtimeSubscription.channel|{}channel[0]
+        abstract fun <get-channel>(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeSubscription.channel.<get-channel>|<get-channel>(){}[0]
+
+    abstract suspend fun unsubscribe() // io.github.androidpoet.cloudflare.realtime/RealtimeSubscription.unsubscribe|unsubscribe(){}[0]
+}
+
+sealed interface io.github.androidpoet.cloudflare.realtime/ConnectionState { // io.github.androidpoet.cloudflare.realtime/ConnectionState|null[0]
+    final class Failed : io.github.androidpoet.cloudflare.realtime/ConnectionState { // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed|null[0]
+        constructor <init>(kotlin/String) // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.<init>|<init>(kotlin.String){}[0]
+
+        final val reason // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.reason|{}reason[0]
+            final fun <get-reason>(): kotlin/String // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.reason.<get-reason>|<get-reason>(){}[0]
+
+        final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.realtime/ConnectionState.Failed.toString|toString(){}[0]
+    }
+
+    final object Connected : io.github.androidpoet.cloudflare.realtime/ConnectionState { // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connected|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connected.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connected.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connected.toString|toString(){}[0]
+    }
+
+    final object Connecting : io.github.androidpoet.cloudflare.realtime/ConnectionState { // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connecting|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connecting.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connecting.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.realtime/ConnectionState.Connecting.toString|toString(){}[0]
+    }
+
+    final object Disconnected : io.github.androidpoet.cloudflare.realtime/ConnectionState { // io.github.androidpoet.cloudflare.realtime/ConnectionState.Disconnected|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.realtime/ConnectionState.Disconnected.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.realtime/ConnectionState.Disconnected.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.realtime/ConnectionState.Disconnected.toString|toString(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.realtime/RealtimeEvent { // io.github.androidpoet.cloudflare.realtime/RealtimeEvent|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlinx.serialization.json/JsonElement) // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.<init>|<init>(kotlin.String;kotlin.String;kotlinx.serialization.json.JsonElement){}[0]
+
+    final val channel // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.channel|{}channel[0]
+        final fun <get-channel>(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.channel.<get-channel>|<get-channel>(){}[0]
+    final val payload // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.payload|{}payload[0]
+        final fun <get-payload>(): kotlinx.serialization.json/JsonElement // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.payload.<get-payload>|<get-payload>(){}[0]
+    final val type // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.type|{}type[0]
+        final fun <get-type>(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.type.<get-type>|<get-type>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.component2|component2(){}[0]
+    final fun component3(): kotlinx.serialization.json/JsonElement // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlinx.serialization.json/JsonElement = ...): io.github.androidpoet.cloudflare.realtime/RealtimeEvent // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.copy|copy(kotlin.String;kotlin.String;kotlinx.serialization.json.JsonElement){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.realtime/RealtimeEvent> { // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.realtime/RealtimeEvent // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.realtime/RealtimeEvent) // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.realtime.RealtimeEvent){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.realtime/RealtimeEvent> // io.github.androidpoet.cloudflare.realtime/RealtimeEvent.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.realtime/RealtimeMessage { // io.github.androidpoet.cloudflare.realtime/RealtimeMessage|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String? = ..., kotlinx.serialization.json/JsonElement? = ...) // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.<init>|<init>(kotlin.String;kotlin.String;kotlin.String?;kotlinx.serialization.json.JsonElement?){}[0]
+
+    final val channel // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.channel|{}channel[0]
+        final fun <get-channel>(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.channel.<get-channel>|<get-channel>(){}[0]
+    final val event // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.event|{}event[0]
+        final fun <get-event>(): kotlin/String? // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.event.<get-event>|<get-event>(){}[0]
+    final val payload // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.payload|{}payload[0]
+        final fun <get-payload>(): kotlinx.serialization.json/JsonElement? // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.payload.<get-payload>|<get-payload>(){}[0]
+    final val type // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.type|{}type[0]
+        final fun <get-type>(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.type.<get-type>|<get-type>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.component3|component3(){}[0]
+    final fun component4(): kotlinx.serialization.json/JsonElement? // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlinx.serialization.json/JsonElement? = ...): io.github.androidpoet.cloudflare.realtime/RealtimeMessage // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.copy|copy(kotlin.String;kotlin.String;kotlin.String?;kotlinx.serialization.json.JsonElement?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.realtime/RealtimeMessage> { // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.realtime/RealtimeMessage // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.realtime/RealtimeMessage) // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.realtime.RealtimeMessage){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.realtime/RealtimeMessage> // io.github.androidpoet.cloudflare.realtime/RealtimeMessage.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final fun io.github.androidpoet.cloudflare.realtime/createRealtimeClient(kotlin/String, kotlin/String, kotlin.coroutines/SuspendFunction0<kotlin/String?> = ..., kotlin/Boolean = ...): io.github.androidpoet.cloudflare.realtime/RealtimeClient // io.github.androidpoet.cloudflare.realtime/createRealtimeClient|createRealtimeClient(kotlin.String;kotlin.String;kotlin.coroutines.SuspendFunction0<kotlin.String?>;kotlin.Boolean){}[0]

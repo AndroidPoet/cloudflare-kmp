@@ -1,0 +1,199 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <cloudflare-kmp:cloudflare-kv>
+final class io.github.androidpoet.cloudflare.kv/KvApi { // io.github.androidpoet.cloudflare.kv/KvApi|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.client.api/CloudflareApiClient) // io.github.androidpoet.cloudflare.kv/KvApi.<init>|<init>(io.github.androidpoet.cloudflare.client.api.CloudflareApiClient){}[0]
+
+    final suspend fun bulkDelete(kotlin/String, kotlin.collections/List<kotlin/String>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.kv/KvBulkResult> // io.github.androidpoet.cloudflare.kv/KvApi.bulkDelete|bulkDelete(kotlin.String;kotlin.collections.List<kotlin.String>){}[0]
+    final suspend fun bulkWrite(kotlin/String, kotlin.collections/List<io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry>): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.kv/KvBulkResult> // io.github.androidpoet.cloudflare.kv/KvApi.bulkWrite|bulkWrite(kotlin.String;kotlin.collections.List<io.github.androidpoet.cloudflare.kv.KvBulkWriteEntry>){}[0]
+    final suspend fun createNamespace(kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.kv/KvNamespace> // io.github.androidpoet.cloudflare.kv/KvApi.createNamespace|createNamespace(kotlin.String){}[0]
+    final suspend fun deleteNamespace(kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Unit> // io.github.androidpoet.cloudflare.kv/KvApi.deleteNamespace|deleteNamespace(kotlin.String){}[0]
+    final suspend fun deleteValue(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Unit> // io.github.androidpoet.cloudflare.kv/KvApi.deleteValue|deleteValue(kotlin.String;kotlin.String){}[0]
+    final suspend fun getNamespace(kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.kv/KvNamespace> // io.github.androidpoet.cloudflare.kv/KvApi.getNamespace|getNamespace(kotlin.String){}[0]
+    final suspend fun listKeys(kotlin/String, kotlin/String? = ..., kotlin/Int? = ..., kotlin/String? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.client.api/CloudflarePage<kotlin.collections/List<io.github.androidpoet.cloudflare.kv/KvKey>>> // io.github.androidpoet.cloudflare.kv/KvApi.listKeys|listKeys(kotlin.String;kotlin.String?;kotlin.Int?;kotlin.String?){}[0]
+    final suspend fun listNamespaces(kotlin/Int? = ..., kotlin/Int? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<io.github.androidpoet.cloudflare.client.api/CloudflarePage<kotlin.collections/List<io.github.androidpoet.cloudflare.kv/KvNamespace>>> // io.github.androidpoet.cloudflare.kv/KvApi.listNamespaces|listNamespaces(kotlin.Int?;kotlin.Int?){}[0]
+    final suspend fun readMetadata(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvApi.readMetadata|readMetadata(kotlin.String;kotlin.String){}[0]
+    final suspend fun readValue(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvApi.readValue|readValue(kotlin.String;kotlin.String){}[0]
+    final suspend fun renameNamespace(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Unit> // io.github.androidpoet.cloudflare.kv/KvApi.renameNamespace|renameNamespace(kotlin.String;kotlin.String){}[0]
+    final suspend fun writeValue(kotlin/String, kotlin/String, kotlin/String, kotlin/Long? = ..., kotlin/Long? = ...): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/Unit> // io.github.androidpoet.cloudflare.kv/KvApi.writeValue|writeValue(kotlin.String;kotlin.String;kotlin.String;kotlin.Long?;kotlin.Long?){}[0]
+}
+
+final class io.github.androidpoet.cloudflare.kv/KvBulkResult { // io.github.androidpoet.cloudflare.kv/KvBulkResult|null[0]
+    constructor <init>(kotlin/Int? = ..., kotlin.collections/List<kotlin/String> = ...) // io.github.androidpoet.cloudflare.kv/KvBulkResult.<init>|<init>(kotlin.Int?;kotlin.collections.List<kotlin.String>){}[0]
+
+    final val successfulKeyCount // io.github.androidpoet.cloudflare.kv/KvBulkResult.successfulKeyCount|{}successfulKeyCount[0]
+        final fun <get-successfulKeyCount>(): kotlin/Int? // io.github.androidpoet.cloudflare.kv/KvBulkResult.successfulKeyCount.<get-successfulKeyCount>|<get-successfulKeyCount>(){}[0]
+    final val unsuccessfulKeys // io.github.androidpoet.cloudflare.kv/KvBulkResult.unsuccessfulKeys|{}unsuccessfulKeys[0]
+        final fun <get-unsuccessfulKeys>(): kotlin.collections/List<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvBulkResult.unsuccessfulKeys.<get-unsuccessfulKeys>|<get-unsuccessfulKeys>(){}[0]
+
+    final fun component1(): kotlin/Int? // io.github.androidpoet.cloudflare.kv/KvBulkResult.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvBulkResult.component2|component2(){}[0]
+    final fun copy(kotlin/Int? = ..., kotlin.collections/List<kotlin/String> = ...): io.github.androidpoet.cloudflare.kv/KvBulkResult // io.github.androidpoet.cloudflare.kv/KvBulkResult.copy|copy(kotlin.Int?;kotlin.collections.List<kotlin.String>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.kv/KvBulkResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.kv/KvBulkResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvBulkResult.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.kv/KvBulkResult> { // io.github.androidpoet.cloudflare.kv/KvBulkResult.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.kv/KvBulkResult.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.kv/KvBulkResult.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.kv/KvBulkResult.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.kv/KvBulkResult // io.github.androidpoet.cloudflare.kv/KvBulkResult.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.kv/KvBulkResult) // io.github.androidpoet.cloudflare.kv/KvBulkResult.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.kv.KvBulkResult){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.kv/KvBulkResult.Companion|null[0]
+        final val $childSerializers // io.github.androidpoet.cloudflare.kv/KvBulkResult.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.kv/KvBulkResult> // io.github.androidpoet.cloudflare.kv/KvBulkResult.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry { // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Long? = ..., kotlin/Long? = ..., kotlinx.serialization.json/JsonElement? = ..., kotlin/Boolean? = ...) // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.<init>|<init>(kotlin.String;kotlin.String;kotlin.Long?;kotlin.Long?;kotlinx.serialization.json.JsonElement?;kotlin.Boolean?){}[0]
+
+    final val base64 // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.base64|{}base64[0]
+        final fun <get-base64>(): kotlin/Boolean? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.base64.<get-base64>|<get-base64>(){}[0]
+    final val expiration // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.expiration|{}expiration[0]
+        final fun <get-expiration>(): kotlin/Long? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.expiration.<get-expiration>|<get-expiration>(){}[0]
+    final val expirationTtl // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.expirationTtl|{}expirationTtl[0]
+        final fun <get-expirationTtl>(): kotlin/Long? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.expirationTtl.<get-expirationTtl>|<get-expirationTtl>(){}[0]
+    final val key // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.key|{}key[0]
+        final fun <get-key>(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.key.<get-key>|<get-key>(){}[0]
+    final val metadata // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.metadata|{}metadata[0]
+        final fun <get-metadata>(): kotlinx.serialization.json/JsonElement? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.metadata.<get-metadata>|<get-metadata>(){}[0]
+    final val value // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.value|{}value[0]
+        final fun <get-value>(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.value.<get-value>|<get-value>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.component2|component2(){}[0]
+    final fun component3(): kotlin/Long? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.component3|component3(){}[0]
+    final fun component4(): kotlin/Long? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.component4|component4(){}[0]
+    final fun component5(): kotlinx.serialization.json/JsonElement? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.component5|component5(){}[0]
+    final fun component6(): kotlin/Boolean? // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.component6|component6(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Long? = ..., kotlin/Long? = ..., kotlinx.serialization.json/JsonElement? = ..., kotlin/Boolean? = ...): io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.copy|copy(kotlin.String;kotlin.String;kotlin.Long?;kotlin.Long?;kotlinx.serialization.json.JsonElement?;kotlin.Boolean?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry> { // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry) // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.kv.KvBulkWriteEntry){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry> // io.github.androidpoet.cloudflare.kv/KvBulkWriteEntry.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.kv/KvClient { // io.github.androidpoet.cloudflare.kv/KvClient|null[0]
+    constructor <init>(io.github.androidpoet.cloudflare.client/CloudflareClient) // io.github.androidpoet.cloudflare.kv/KvClient.<init>|<init>(io.github.androidpoet.cloudflare.client.CloudflareClient){}[0]
+
+    final suspend fun delete(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvClient.delete|delete(kotlin.String;kotlin.String){}[0]
+    final suspend fun get(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvClient.get|get(kotlin.String;kotlin.String){}[0]
+    final suspend fun putText(kotlin/String, kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvClient.putText|putText(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final suspend inline fun <#A1: reified kotlin/Any?> getJson(kotlin/String, kotlin/String): io.github.androidpoet.cloudflare.core.result/CloudflareResult<#A1> // io.github.androidpoet.cloudflare.kv/KvClient.getJson|getJson(kotlin.String;kotlin.String){0§<kotlin.Any?>}[0]
+    final suspend inline fun <#A1: reified kotlin/Any?> putJson(kotlin/String, kotlin/String, #A1): io.github.androidpoet.cloudflare.core.result/CloudflareResult<kotlin/String> // io.github.androidpoet.cloudflare.kv/KvClient.putJson|putJson(kotlin.String;kotlin.String;0:0){0§<kotlin.Any?>}[0]
+}
+
+final class io.github.androidpoet.cloudflare.kv/KvKey { // io.github.androidpoet.cloudflare.kv/KvKey|null[0]
+    constructor <init>(kotlin/String, kotlin/Long? = ..., kotlinx.serialization.json/JsonElement? = ...) // io.github.androidpoet.cloudflare.kv/KvKey.<init>|<init>(kotlin.String;kotlin.Long?;kotlinx.serialization.json.JsonElement?){}[0]
+
+    final val expiration // io.github.androidpoet.cloudflare.kv/KvKey.expiration|{}expiration[0]
+        final fun <get-expiration>(): kotlin/Long? // io.github.androidpoet.cloudflare.kv/KvKey.expiration.<get-expiration>|<get-expiration>(){}[0]
+    final val metadata // io.github.androidpoet.cloudflare.kv/KvKey.metadata|{}metadata[0]
+        final fun <get-metadata>(): kotlinx.serialization.json/JsonElement? // io.github.androidpoet.cloudflare.kv/KvKey.metadata.<get-metadata>|<get-metadata>(){}[0]
+    final val name // io.github.androidpoet.cloudflare.kv/KvKey.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvKey.name.<get-name>|<get-name>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvKey.component1|component1(){}[0]
+    final fun component2(): kotlin/Long? // io.github.androidpoet.cloudflare.kv/KvKey.component2|component2(){}[0]
+    final fun component3(): kotlinx.serialization.json/JsonElement? // io.github.androidpoet.cloudflare.kv/KvKey.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Long? = ..., kotlinx.serialization.json/JsonElement? = ...): io.github.androidpoet.cloudflare.kv/KvKey // io.github.androidpoet.cloudflare.kv/KvKey.copy|copy(kotlin.String;kotlin.Long?;kotlinx.serialization.json.JsonElement?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.kv/KvKey.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.kv/KvKey.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvKey.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.kv/KvKey> { // io.github.androidpoet.cloudflare.kv/KvKey.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.kv/KvKey.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.kv/KvKey.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.kv/KvKey.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.kv/KvKey // io.github.androidpoet.cloudflare.kv/KvKey.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.kv/KvKey) // io.github.androidpoet.cloudflare.kv/KvKey.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.kv.KvKey){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.kv/KvKey.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.kv/KvKey> // io.github.androidpoet.cloudflare.kv/KvKey.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.kv/KvNamespace { // io.github.androidpoet.cloudflare.kv/KvNamespace|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Boolean? = ...) // io.github.androidpoet.cloudflare.kv/KvNamespace.<init>|<init>(kotlin.String;kotlin.String;kotlin.Boolean?){}[0]
+
+    final val id // io.github.androidpoet.cloudflare.kv/KvNamespace.id|{}id[0]
+        final fun <get-id>(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespace.id.<get-id>|<get-id>(){}[0]
+    final val supportsUrlEncoding // io.github.androidpoet.cloudflare.kv/KvNamespace.supportsUrlEncoding|{}supportsUrlEncoding[0]
+        final fun <get-supportsUrlEncoding>(): kotlin/Boolean? // io.github.androidpoet.cloudflare.kv/KvNamespace.supportsUrlEncoding.<get-supportsUrlEncoding>|<get-supportsUrlEncoding>(){}[0]
+    final val title // io.github.androidpoet.cloudflare.kv/KvNamespace.title|{}title[0]
+        final fun <get-title>(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespace.title.<get-title>|<get-title>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespace.component1|component1(){}[0]
+    final fun component2(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespace.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean? // io.github.androidpoet.cloudflare.kv/KvNamespace.component3|component3(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Boolean? = ...): io.github.androidpoet.cloudflare.kv/KvNamespace // io.github.androidpoet.cloudflare.kv/KvNamespace.copy|copy(kotlin.String;kotlin.String;kotlin.Boolean?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.kv/KvNamespace.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.kv/KvNamespace.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespace.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.kv/KvNamespace> { // io.github.androidpoet.cloudflare.kv/KvNamespace.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.kv/KvNamespace.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.kv/KvNamespace.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.kv/KvNamespace.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.kv/KvNamespace // io.github.androidpoet.cloudflare.kv/KvNamespace.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.kv/KvNamespace) // io.github.androidpoet.cloudflare.kv/KvNamespace.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.kv.KvNamespace){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.kv/KvNamespace.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.kv/KvNamespace> // io.github.androidpoet.cloudflare.kv/KvNamespace.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class io.github.androidpoet.cloudflare.kv/KvNamespaceRequest { // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest|null[0]
+    constructor <init>(kotlin/String) // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.<init>|<init>(kotlin.String){}[0]
+
+    final val title // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.title|{}title[0]
+        final fun <get-title>(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.title.<get-title>|<get-title>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.component1|component1(){}[0]
+    final fun copy(kotlin/String = ...): io.github.androidpoet.cloudflare.kv/KvNamespaceRequest // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.copy|copy(kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<io.github.androidpoet.cloudflare.kv/KvNamespaceRequest> { // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.$serializer|null[0]
+        final val descriptor // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): io.github.androidpoet.cloudflare.kv/KvNamespaceRequest // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, io.github.androidpoet.cloudflare.kv/KvNamespaceRequest) // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;io.github.androidpoet.cloudflare.kv.KvNamespaceRequest){}[0]
+    }
+
+    final object Companion { // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<io.github.androidpoet.cloudflare.kv/KvNamespaceRequest> // io.github.androidpoet.cloudflare.kv/KvNamespaceRequest.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final fun (io.github.androidpoet.cloudflare.client.api/CloudflareApiClient).io.github.androidpoet.cloudflare.kv/kv(): io.github.androidpoet.cloudflare.kv/KvApi // io.github.androidpoet.cloudflare.kv/kv|kv@io.github.androidpoet.cloudflare.client.api.CloudflareApiClient(){}[0]
+final fun (io.github.androidpoet.cloudflare.client/CloudflareClient).io.github.androidpoet.cloudflare.kv/kv(): io.github.androidpoet.cloudflare.kv/KvClient // io.github.androidpoet.cloudflare.kv/kv|kv@io.github.androidpoet.cloudflare.client.CloudflareClient(){}[0]

@@ -3,10 +3,10 @@ package io.github.androidpoet.cloudflare.worker
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.promise
-import kotlin.js.Promise
 import org.w3c.fetch.Request
 import org.w3c.fetch.Response
 import org.w3c.fetch.ResponseInit
+import kotlin.js.Promise
 
 private val identifierPattern = Regex("^[A-Za-z_][A-Za-z0-9_]*$")
 
@@ -24,7 +24,11 @@ private suspend fun handleRequest(request: Request, env: dynamic): Response {
 
     val url = URL(request.url)
     val method = request.method.uppercase()
-    val segments = url.pathname.trim('/').split('/').filter { it.isNotBlank() }
+    val segments =
+        url.pathname
+            .trim('/')
+            .split('/')
+            .filter { it.isNotBlank() }
 
     return when {
         segments.firstOrNull() == "health" -> json("""{"ok":true}""")
@@ -217,7 +221,9 @@ private fun objectKeys(value: dynamic): Array<String> =
 private fun searchParamEntries(value: dynamic): Array<dynamic> =
     js("Array").from(value.entries()).unsafeCast<Array<dynamic>>()
 
-private external class URL(url: String) {
+private external class URL(
+    url: String,
+) {
     val pathname: String
     val searchParams: URLSearchParams
 }

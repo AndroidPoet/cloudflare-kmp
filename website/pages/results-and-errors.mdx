@@ -1,0 +1,67 @@
+---
+title: Results & Errors
+description: How CloudflareResult and CloudflareError model success and failure without throwing.
+---
+
+# Results & Errors
+
+Every SDK call returns a `CloudflareResult<T>` — a sealed result type that makes
+both the success value and the failure explicit. The SDK does not throw for
+expected failures (network, HTTP, decode); you handle them as data.
+
+## CloudflareResult
+
+```kotlin
+public sealed interface CloudflareResult<out T> {
+    public data class Success<T>(val value: T) : CloudflareResult<T>
+    public data class Failure(val error: CloudflareError) : CloudflareResult<Nothing>
+}
+```
+
+Transform and combine results without unwrapping:
+
+```kotlin
+val title: CloudflareResult<String> = cloudflare
+    .d1()
+    .from("todos")
+    .select<Todo> { eq("id", "todo_1") }
+    .map { todos -> todos.first().title }
+
+cloudflare
+    .d1()
+    .from("todos")
+    .select<Todo> { limit(1) }
+    .flatMap { todos -> loadDetails(todos.first().id) }
+    .recover { error -> emptyList() }
+    .onSuccess { details -> render(details) }
+    .onFailure { error -> log(error) }
+```
+
+| Operator    | Use it to                                              |
+| ----------- | ------------------------------------------------------ |
+| `map`       | transform the success value                            |
+| `flatMap`   | chain another `CloudflareResult`-returning call        |
+| `recover`   | substitute a fallback value on failure                 |
+| `onSuccess` | run a side effect when successful                      |
+| `onFailure` | run a side effect when failed                          |
+
+## CloudflareError
+
+Failures carry a category and an optional HTTP status so callers can branch
+without parsing strings:
+
+```kotlin
+when (val r = call()) {
+    is CloudflareResult.Failure -> when (r.error) {
+        is CloudflareError.Network    -> retryLater()
+        is CloudflareError.Http       -> showStatus(r.error.status)
+        is CloudflareError.Decoding   -> reportBug(r.error.message)
+        is CloudflareError.Unknown    -> showGeneric()
+    }
+    is CloudflareResult.Success -> render(r.value)
+}
+```
+
+This keeps error handling exhaustive at the call site and lets you map
+HTTP-level problems (`401`, `404`, `5xx`) coming back from your Worker into
+app-level behaviour.

@@ -1,0 +1,331 @@
+public final class io/github/androidpoet/cloudflare/core/CloudflareApiConfig {
+	public static final field Companion Lio/github/androidpoet/cloudflare/core/CloudflareApiConfig$Companion;
+	public static final field DEFAULT_BASE_URL Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/core/CloudflareApiConfig;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/CloudflareApiConfig;Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/CloudflareApiConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccountId ()Ljava/lang/String;
+	public final fun getBaseUrl ()Ljava/lang/String;
+	public final fun getCredentials ()Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials;
+	public final fun getNormalizedBaseUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/CloudflareApiConfig$Companion {
+}
+
+public final class io/github/androidpoet/cloudflare/core/CloudflareConfig {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/jvm/functions/Function1;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/CloudflareConfig;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/CloudflareConfig;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/CloudflareConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccessTokenProvider ()Lkotlin/jvm/functions/Function1;
+	public final fun getNormalizedWorkerUrl ()Ljava/lang/String;
+	public final fun getPublishableKey ()Ljava/lang/String;
+	public final fun getWorkerUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/CloudflareHeaders {
+	public static final field AUTHORIZATION Ljava/lang/String;
+	public static final field CONTENT_TYPE Ljava/lang/String;
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/core/CloudflareHeaders;
+	public static final field PUBLISHABLE_KEY Ljava/lang/String;
+	public static final field R2_JURISDICTION Ljava/lang/String;
+	public static final field X_AUTH_EMAIL Ljava/lang/String;
+	public static final field X_AUTH_KEY Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareApiError {
+	public static final field Companion Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError$Companion;
+	public fun <init> ()V
+	public fun <init> (ILjava/lang/String;)V
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;)Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError;ILjava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()I
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/core/api/CloudflareApiError$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/core/api/CloudflareApiError;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareApiError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareApiMessage {
+	public static final field Companion Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage$Companion;
+	public fun <init> ()V
+	public fun <init> (ILjava/lang/String;)V
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;)Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage;ILjava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()I
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/core/api/CloudflareApiMessage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/core/api/CloudflareApiMessage;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareApiMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareEnvelope {
+	public static final field Companion Lio/github/androidpoet/cloudflare/core/api/CloudflareEnvelope$Companion;
+	public fun <init> ()V
+	public fun <init> (ZLjava/util/List;Ljava/util/List;Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;)V
+	public synthetic fun <init> (ZLjava/util/List;Ljava/util/List;Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/Object;
+	public final fun component5 ()Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public final fun copy (ZLjava/util/List;Ljava/util/List;Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;)Lio/github/androidpoet/cloudflare/core/api/CloudflareEnvelope;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/api/CloudflareEnvelope;ZLjava/util/List;Ljava/util/List;Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/api/CloudflareEnvelope;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrors ()Ljava/util/List;
+	public final fun getMessages ()Ljava/util/List;
+	public final fun getResult ()Ljava/lang/Object;
+	public final fun getResultInfo ()Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public final fun getSuccess ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/core/api/CloudflareEnvelope$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public fun <init> (Lkotlinx/serialization/KSerializer;)V
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/core/api/CloudflareEnvelope;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/core/api/CloudflareEnvelope;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareEnvelope$Companion {
+	public final fun serializer (Lkotlinx/serialization/KSerializer;)Lkotlinx/serialization/KSerializer;
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareResultInfo {
+	public static final field Companion Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Integer;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun component4 ()Ljava/lang/Integer;
+	public final fun component5 ()Ljava/lang/Integer;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()Ljava/lang/Integer;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getPage ()Ljava/lang/Integer;
+	public final fun getPerPage ()Ljava/lang/Integer;
+	public final fun getTotalCount ()Ljava/lang/Integer;
+	public final fun getTotalPages ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class io/github/androidpoet/cloudflare/core/api/CloudflareResultInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/androidpoet/cloudflare/core/api/CloudflareResultInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class io/github/androidpoet/cloudflare/core/auth/CloudflareCredentials {
+}
+
+public final class io/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiKey : io/github/androidpoet/cloudflare/core/auth/CloudflareCredentials {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiKey;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiKey;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiKey;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiToken : io/github/androidpoet/cloudflare/core/auth/CloudflareCredentials {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiToken;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiToken;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/auth/CloudflareCredentials$ApiToken;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/auth/CloudflareSession {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lio/github/androidpoet/cloudflare/core/auth/CloudflareSession;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/auth/CloudflareSession;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/auth/CloudflareSession;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccessToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public final fun component5 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;Ljava/lang/Throwable;)Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/result/CloudflareError;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;Ljava/lang/Throwable;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public final fun getCause ()Ljava/lang/Throwable;
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getStatusCode ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public final fun toException ()Lio/github/androidpoet/cloudflare/core/result/CloudflareException;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory : java/lang/Enum {
+	public static final field Conflict Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field Forbidden Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field Network Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field NotFound Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field RateLimited Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field Serialization Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field Server Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field Unauthorized Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static final field Unknown Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+	public static fun values ()[Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareException : java/lang/Exception {
+	public fun <init> (Lio/github/androidpoet/cloudflare/core/result/CloudflareError;)V
+	public final fun getError ()Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+}
+
+public abstract interface class io/github/androidpoet/cloudflare/core/result/CloudflareResult {
+	public static final field Companion Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Companion;
+	public abstract fun errorOrNull ()Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public abstract fun getOrNull ()Ljava/lang/Object;
+	public abstract fun getOrThrow ()Ljava/lang/Object;
+	public abstract fun isFailure ()Z
+	public abstract fun isSuccess ()Z
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareResult$Companion {
+	public final fun catching (Lkotlin/jvm/functions/Function0;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareResult$DefaultImpls {
+	public static fun errorOrNull (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;)Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public static fun getOrNull (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;)Ljava/lang/Object;
+	public static fun getOrThrow (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;)Ljava/lang/Object;
+	public static fun isFailure (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;)Z
+	public static fun isSuccess (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;)Z
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareResult$Failure : io/github/androidpoet/cloudflare/core/result/CloudflareResult {
+	public fun <init> (Lio/github/androidpoet/cloudflare/core/result/CloudflareError;)V
+	public final fun component1 ()Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public final fun copy (Lio/github/androidpoet/cloudflare/core/result/CloudflareError;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Failure;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Failure;Lio/github/androidpoet/cloudflare/core/result/CloudflareError;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun errorOrNull ()Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public final fun getError ()Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public synthetic fun getOrNull ()Ljava/lang/Object;
+	public fun getOrNull ()Ljava/lang/Void;
+	public synthetic fun getOrThrow ()Ljava/lang/Object;
+	public fun getOrThrow ()Ljava/lang/Void;
+	public fun hashCode ()I
+	public fun isFailure ()Z
+	public fun isSuccess ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareResult$Success : io/github/androidpoet/cloudflare/core/result/CloudflareResult {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Success;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Success;Ljava/lang/Object;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun errorOrNull ()Lio/github/androidpoet/cloudflare/core/result/CloudflareError;
+	public fun getOrNull ()Ljava/lang/Object;
+	public fun getOrThrow ()Ljava/lang/Object;
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun isFailure ()Z
+	public fun isSuccess ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/core/result/CloudflareResultKt {
+	public static final fun flatMap (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun getOrElse (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final fun map (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun onFailure (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun onFailureCategory (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lio/github/androidpoet/cloudflare/core/result/CloudflareErrorCategory;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun onNotFound (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun onRateLimited (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun onSuccess (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun onUnauthorized (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static final fun recover (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+}
+

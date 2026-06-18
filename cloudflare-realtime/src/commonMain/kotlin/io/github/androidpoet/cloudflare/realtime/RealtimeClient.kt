@@ -30,10 +30,11 @@ public fun createRealtimeClient(
     reconnect: Boolean = true,
 ): RealtimeClient =
     WebSocketRealtimeClient(
-        config = CloudflareConfig(
-            workerUrl = workerUrl,
-            publishableKey = publishableKey,
-            accessTokenProvider = accessTokenProvider,
-        ),
+        config =
+            CloudflareConfig(
+                workerUrl = workerUrl,
+                publishableKey = publishableKey,
+                accessTokenProvider = accessTokenProvider,
+            ),
         reconnect = reconnect,
     )

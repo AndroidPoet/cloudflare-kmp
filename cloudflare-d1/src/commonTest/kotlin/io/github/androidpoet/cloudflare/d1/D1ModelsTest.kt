@@ -7,25 +7,31 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class D1ModelsTest {
-    private val json = Json { ignoreUnknownKeys = true; isLenient = true }
+    private val json =
+        Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+        }
 
     @Test
     fun test_d1QueryRequest_serializesSqlAndParams() {
-        val encoded = json.encodeToString(
-            D1QueryRequest.serializer(),
-            D1QueryRequest(sql = "SELECT * FROM t WHERE id = ?", params = listOf("1")),
-        )
+        val encoded =
+            json.encodeToString(
+                D1QueryRequest.serializer(),
+                D1QueryRequest(sql = "SELECT * FROM t WHERE id = ?", params = listOf("1")),
+            )
         assertTrue(encoded.contains("\"sql\":\"SELECT * FROM t WHERE id = ?\""))
         assertTrue(encoded.contains("\"params\":[\"1\"]"))
     }
 
     @Test
     fun test_d1QueryResult_decodesResultsAndMeta() {
-        val raw = """
+        val raw =
+            """
             {"success":true,
              "meta":{"duration":0.5,"changes":1,"last_row_id":42,"rows_read":1,"rows_written":1,"served_by_region":"WNAM"},
              "results":[{"id":1,"title":"hi"}]}
-        """.trimIndent()
+            """.trimIndent()
         val result = json.decodeFromString(D1QueryResult.serializer(), raw)
 
         assertTrue(result.success)
@@ -48,10 +54,11 @@ class D1ModelsTest {
 
     @Test
     fun test_d1CreateRequest_omitsNullLocationHint() {
-        val encoded = Json { explicitNulls = false }.encodeToString(
-            D1CreateDatabaseRequest.serializer(),
-            D1CreateDatabaseRequest(name = "db"),
-        )
+        val encoded =
+            Json { explicitNulls = false }.encodeToString(
+                D1CreateDatabaseRequest.serializer(),
+                D1CreateDatabaseRequest(name = "db"),
+            )
         assertEquals("{\"name\":\"db\"}", encoded)
     }
 }

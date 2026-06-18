@@ -57,7 +57,8 @@ class CloudflareResultTest {
         var successValue = 0
         var failureMessage: String? = null
 
-        CloudflareResult.Success(7)
+        CloudflareResult
+            .Success(7)
             .onSuccess { successValue = it }
             .onFailure { failureMessage = it.message }
 

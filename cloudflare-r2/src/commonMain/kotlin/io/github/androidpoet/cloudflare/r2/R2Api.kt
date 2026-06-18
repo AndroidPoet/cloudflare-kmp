@@ -30,7 +30,8 @@ public class R2Api(
     public suspend fun listBuckets(
         jurisdiction: String? = null,
     ): CloudflareResult<List<R2Bucket>> =
-        client.get(basePath, headers = jurisdictionHeaders(jurisdiction))
+        client
+            .get(basePath, headers = jurisdictionHeaders(jurisdiction))
             .decodeEnvelope<R2BucketList>()
             .map { it.buckets }
 
@@ -41,14 +42,16 @@ public class R2Api(
         storageClass: String? = null,
         jurisdiction: String? = null,
     ): CloudflareResult<R2Bucket> {
-        val body = defaultCloudflareJson.encodeToString(
-            R2CreateBucketRequest(
-                name = name,
-                locationHint = locationHint,
-                storageClass = storageClass,
-            ),
-        )
-        return client.post(basePath, body = body, headers = jurisdictionHeaders(jurisdiction))
+        val body =
+            defaultCloudflareJson.encodeToString(
+                R2CreateBucketRequest(
+                    name = name,
+                    locationHint = locationHint,
+                    storageClass = storageClass,
+                ),
+            )
+        return client
+            .post(basePath, body = body, headers = jurisdictionHeaders(jurisdiction))
             .decodeEnvelope()
     }
 
@@ -64,7 +67,8 @@ public class R2Api(
         name: String,
         jurisdiction: String? = null,
     ): CloudflareResult<Unit> =
-        client.delete("$basePath/$name", headers = jurisdictionHeaders(jurisdiction))
+        client
+            .delete("$basePath/$name", headers = jurisdictionHeaders(jurisdiction))
             .decodeEnvelopeUnit()
 
     private fun jurisdictionHeaders(jurisdiction: String?): Map<String, String> =

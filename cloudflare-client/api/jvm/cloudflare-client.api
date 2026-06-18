@@ -1,0 +1,85 @@
+public abstract interface class io/github/androidpoet/cloudflare/client/CloudflareClient {
+	public abstract fun close ()V
+	public abstract fun delete (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun get (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun patch (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun post (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/client/CloudflareClient$DefaultImpls {
+	public static synthetic fun delete$default (Lio/github/androidpoet/cloudflare/client/CloudflareClient;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun get$default (Lio/github/androidpoet/cloudflare/client/CloudflareClient;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun patch$default (Lio/github/androidpoet/cloudflare/client/CloudflareClient;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lio/github/androidpoet/cloudflare/client/CloudflareClient;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/client/CloudflareClientExtKt {
+	public static final fun getDefaultCloudflareJson ()Lkotlinx/serialization/json/Json;
+}
+
+public final class io/github/androidpoet/cloudflare/client/CloudflareClientImpl : io/github/androidpoet/cloudflare/client/CloudflareClient {
+	public fun <init> (Lio/github/androidpoet/cloudflare/core/CloudflareConfig;)V
+	public fun close ()V
+	public fun delete (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun get (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun patch (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun post (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/client/CloudflareClientImplKt {
+	public static final fun createCloudflareClient (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lio/github/androidpoet/cloudflare/client/CloudflareClient;
+	public static synthetic fun createCloudflareClient$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/client/CloudflareClient;
+}
+
+public final class io/github/androidpoet/cloudflare/client/api/CloudflareApiClient {
+	public static final field Companion Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient$Companion;
+	public static final field JSON_CONTENT_TYPE Ljava/lang/String;
+	public static final field TEXT_CONTENT_TYPE Ljava/lang/String;
+	public fun <init> (Lio/github/androidpoet/cloudflare/core/CloudflareApiConfig;)V
+	public final fun close ()V
+	public final fun delete (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun delete$default (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun get$default (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getAccountId ()Ljava/lang/String;
+	public final fun getConfig ()Lio/github/androidpoet/cloudflare/core/CloudflareApiConfig;
+	public final fun post (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun put (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun put$default (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class io/github/androidpoet/cloudflare/client/api/CloudflareApiClient$Companion {
+	public final fun withApiKey (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;
+	public static synthetic fun withApiKey$default (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient$Companion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;
+	public final fun withToken (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;
+	public static synthetic fun withToken$default (Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient$Companion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/client/api/CloudflareApiClient;
+}
+
+public final class io/github/androidpoet/cloudflare/client/api/CloudflareApiClientExtKt {
+	public static final fun decodeEnvelopeUnit (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlinx/serialization/json/Json;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+	public static synthetic fun decodeEnvelopeUnit$default (Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;Lkotlinx/serialization/json/Json;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/core/result/CloudflareResult;
+}
+
+public final class io/github/androidpoet/cloudflare/client/api/CloudflarePage {
+	public fun <init> (Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;)V
+	public synthetic fun <init> (Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun component2 ()Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public final fun copy (Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;)Lio/github/androidpoet/cloudflare/client/api/CloudflarePage;
+	public static synthetic fun copy$default (Lio/github/androidpoet/cloudflare/client/api/CloudflarePage;Ljava/lang/Object;Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;ILjava/lang/Object;)Lio/github/androidpoet/cloudflare/client/api/CloudflarePage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getResult ()Ljava/lang/Object;
+	public final fun getResultInfo ()Lio/github/androidpoet/cloudflare/core/api/CloudflareResultInfo;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/client/api/UrlEncodingKt {
+	public static final fun encodeUrlPathPart (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class io/github/androidpoet/cloudflare/client/transport/PlatformEngineKt {
+	public static final fun defaultPlatformEngine ()Lio/ktor/client/engine/HttpClientEngineFactory;
+}
+

@@ -1,0 +1,53 @@
+---
+title: Cloudflare KMP
+description: A type-safe, coroutine-first Kotlin Multiplatform SDK and Worker gateway for Cloudflare D1, KV, R2 and realtime-style app backends.
+---
+
+import { Hero } from '../components/Hero'
+
+<Hero />
+
+Cloudflare gives you powerful backend primitives, but not a mobile-safe
+credential model. Cloudflare account API tokens can administer D1, KV, R2 and
+your Workers — they must never ship inside an app. **Cloudflare KMP** adds the
+missing application layer:
+
+```text
+KMP app  ->  Cloudflare KMP SDK  ->  your Worker gateway  ->  D1 / KV / R2 / Durable Objects
+```
+
+Apps receive only a Worker URL and a publishable key. Account tokens, bindings
+and secrets stay server-side in your Worker.
+
+## Why a gateway?
+
+A direct REST wrapper would force every app to hold an account token. Instead,
+the SDK speaks to **your** Worker, and the Worker speaks to Cloudflare bindings
+(`env.DB`, `env.APP_KV`, `env.MY_BUCKET`). The binding is both the permission
+and the API — the app cannot reach the resource on its own.
+
+## Highlights
+
+- **App-safe credentials** — `workerUrl` + `publishableKey`, never account tokens.
+- **Result-first** — every call returns `CloudflareResult<T>` with `map`,
+  `flatMap`, `recover`, `onSuccess` and `onFailure`. No thrown control flow.
+- **D1 table API** — `from("todos").select<Todo> { eq("done", "false") }`,
+  plus `insert`, `update` and `delete`.
+- **KV helpers** — read/write plain text or typed JSON through a Worker binding.
+- **R2 client shape** — signed upload/download URL client, ready for
+  Worker-side signing.
+- **Realtime WebSocket client** — subscribe/broadcast over `wss://` with
+  auto-reconnect and backoff.
+- **Direct REST client** — `CloudflareApiClient` for the Cloudflare v4 API
+  (D1, KV, R2) with the standard envelope, for server-side/admin use.
+- **Kotlin/JS Worker template** — author the gateway in Kotlin, ship a module Worker.
+- **Modular** — depend only on the pieces your app needs.
+
+## Status
+
+This is an alpha. The SDK modules compile across all targets, the Kotlin/JS
+Worker dry-runs with Wrangler, and the Worker template implements D1 and KV
+routes. Production gaps are explicit: R2 signing and Durable Object realtime
+are API-shaped but not yet fully implemented.
+
+Continue to **[Getting Started](/getting-started)**.

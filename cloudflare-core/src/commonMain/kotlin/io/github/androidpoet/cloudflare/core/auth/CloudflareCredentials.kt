@@ -16,7 +16,9 @@ public sealed interface CloudflareCredentials {
     /**
      * API token authentication (recommended). The token is scoped via the Cloudflare dashboard.
      */
-    public data class ApiToken(public val token: String) : CloudflareCredentials {
+    public data class ApiToken(
+        public val token: String,
+    ) : CloudflareCredentials {
         init {
             require(token.isNotBlank()) { "token cannot be blank." }
         }

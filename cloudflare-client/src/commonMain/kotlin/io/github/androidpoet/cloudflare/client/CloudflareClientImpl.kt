@@ -8,10 +8,11 @@ import io.github.androidpoet.cloudflare.core.result.CloudflareResult
 public class CloudflareClientImpl(
     config: CloudflareConfig,
 ) : CloudflareClient {
-    private val transport = HttpTransport(
-        config = config,
-        engineFactory = platformEngine(),
-    )
+    private val transport =
+        HttpTransport(
+            config = config,
+            engineFactory = platformEngine(),
+        )
 
     override suspend fun get(
         endpoint: String,
@@ -45,10 +46,11 @@ public fun createCloudflareClient(
     workerUrl: String,
     publishableKey: String,
     accessTokenProvider: suspend () -> String? = { null },
-): CloudflareClient = CloudflareClientImpl(
-    CloudflareConfig(
-        workerUrl = workerUrl,
-        publishableKey = publishableKey,
-        accessTokenProvider = accessTokenProvider,
-    ),
-)
+): CloudflareClient =
+    CloudflareClientImpl(
+        CloudflareConfig(
+            workerUrl = workerUrl,
+            publishableKey = publishableKey,
+            accessTokenProvider = accessTokenProvider,
+        ),
+    )

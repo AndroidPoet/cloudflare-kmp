@@ -18,10 +18,11 @@ import io.github.androidpoet.cloudflare.core.result.CloudflareResult
 public class CloudflareApiClient(
     public val config: CloudflareApiConfig,
 ) {
-    private val transport = CloudflareApiTransport(
-        config = config,
-        engineFactory = platformEngine(),
-    )
+    private val transport =
+        CloudflareApiTransport(
+            config = config,
+            engineFactory = platformEngine(),
+        )
 
     /** The account id every account-scoped path is built against. */
     public val accountId: String get() = config.accountId
@@ -68,13 +69,14 @@ public class CloudflareApiClient(
             accountId: String,
             token: String,
             baseUrl: String = CloudflareApiConfig.DEFAULT_BASE_URL,
-        ): CloudflareApiClient = CloudflareApiClient(
-            CloudflareApiConfig(
-                accountId = accountId,
-                credentials = CloudflareCredentials.ApiToken(token),
-                baseUrl = baseUrl,
-            ),
-        )
+        ): CloudflareApiClient =
+            CloudflareApiClient(
+                CloudflareApiConfig(
+                    accountId = accountId,
+                    credentials = CloudflareCredentials.ApiToken(token),
+                    baseUrl = baseUrl,
+                ),
+            )
 
         /** Build a client with the legacy email + global API key scheme. */
         public fun withApiKey(
@@ -82,12 +84,13 @@ public class CloudflareApiClient(
             email: String,
             apiKey: String,
             baseUrl: String = CloudflareApiConfig.DEFAULT_BASE_URL,
-        ): CloudflareApiClient = CloudflareApiClient(
-            CloudflareApiConfig(
-                accountId = accountId,
-                credentials = CloudflareCredentials.ApiKey(email = email, key = apiKey),
-                baseUrl = baseUrl,
-            ),
-        )
+        ): CloudflareApiClient =
+            CloudflareApiClient(
+                CloudflareApiConfig(
+                    accountId = accountId,
+                    credentials = CloudflareCredentials.ApiKey(email = email, key = apiKey),
+                    baseUrl = baseUrl,
+                ),
+            )
     }
 }

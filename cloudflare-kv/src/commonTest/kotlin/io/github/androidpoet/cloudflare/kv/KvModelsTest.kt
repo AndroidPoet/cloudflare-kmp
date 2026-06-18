@@ -10,7 +10,12 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class KvModelsTest {
-    private val json = Json { ignoreUnknownKeys = true; isLenient = true; explicitNulls = false }
+    private val json =
+        Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+            explicitNulls = false
+        }
 
     @Test
     fun test_kvKey_decodesNameExpirationMetadata() {
@@ -32,10 +37,11 @@ class KvModelsTest {
 
     @Test
     fun test_bulkWriteEntry_serializesExpirationTtlSnakeCase() {
-        val encoded = json.encodeToString(
-            KvBulkWriteEntry.serializer(),
-            KvBulkWriteEntry(key = "k", value = "v", expirationTtl = 60),
-        )
+        val encoded =
+            json.encodeToString(
+                KvBulkWriteEntry.serializer(),
+                KvBulkWriteEntry(key = "k", value = "v", expirationTtl = 60),
+            )
         assertTrue(encoded.contains("\"key\":\"k\""))
         assertTrue(encoded.contains("\"expiration_ttl\":60"))
     }
@@ -51,10 +57,11 @@ class KvModelsTest {
 
     @Test
     fun test_bulkDeleteBody_isJsonArrayOfStrings() {
-        val encoded = json.encodeToString(
-            ListSerializer(String.serializer()),
-            listOf("a", "b"),
-        )
+        val encoded =
+            json.encodeToString(
+                ListSerializer(String.serializer()),
+                listOf("a", "b"),
+            )
         assertEquals("[\"a\",\"b\"]", encoded)
     }
 }

@@ -17,10 +17,11 @@ public class R2Client(
         expiresInSeconds: Int = 900,
     ): CloudflareResult<R2SignedUrl> {
         val request = R2SignedUrlRequest(path, contentType, expiresInSeconds)
-        return client.post(
-            endpoint = "/r2/$bucket/upload-url",
-            body = defaultCloudflareJson.encodeToString(request),
-        ).decodeJson()
+        return client
+            .post(
+                endpoint = "/r2/$bucket/upload-url",
+                body = defaultCloudflareJson.encodeToString(request),
+            ).decodeJson()
     }
 
     public suspend fun createDownloadUrl(
@@ -29,10 +30,11 @@ public class R2Client(
         expiresInSeconds: Int = 900,
     ): CloudflareResult<R2SignedUrl> {
         val request = R2DownloadUrlRequest(path, expiresInSeconds)
-        return client.post(
-            endpoint = "/r2/$bucket/download-url",
-            body = defaultCloudflareJson.encodeToString(request),
-        ).decodeJson()
+        return client
+            .post(
+                endpoint = "/r2/$bucket/download-url",
+                body = defaultCloudflareJson.encodeToString(request),
+            ).decodeJson()
     }
 
     public suspend fun deleteObject(

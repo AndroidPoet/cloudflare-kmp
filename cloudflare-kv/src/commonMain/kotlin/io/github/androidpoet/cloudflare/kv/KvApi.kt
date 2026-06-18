@@ -31,10 +31,11 @@ public class KvApi(
         page: Int? = null,
         perPage: Int? = null,
     ): CloudflareResult<CloudflarePage<List<KvNamespace>>> {
-        val query = buildMap {
-            page?.let { put("page", it.toString()) }
-            perPage?.let { put("per_page", it.toString()) }
-        }
+        val query =
+            buildMap {
+                page?.let { put("page", it.toString()) }
+                perPage?.let { put("per_page", it.toString()) }
+            }
         return client.get(basePath, queryParams = query).decodeEnvelopeListPage()
     }
 
@@ -73,12 +74,14 @@ public class KvApi(
         limit: Int? = null,
         cursor: String? = null,
     ): CloudflareResult<CloudflarePage<List<KvKey>>> {
-        val query = buildMap {
-            prefix?.let { put("prefix", it) }
-            limit?.let { put("limit", it.toString()) }
-            cursor?.let { put("cursor", it) }
-        }
-        return client.get("$basePath/$namespaceId/keys", queryParams = query)
+        val query =
+            buildMap {
+                prefix?.let { put("prefix", it) }
+                limit?.let { put("limit", it.toString()) }
+                cursor?.let { put("cursor", it) }
+            }
+        return client
+            .get("$basePath/$namespaceId/keys", queryParams = query)
             .decodeEnvelopeListPage()
     }
 
@@ -108,16 +111,18 @@ public class KvApi(
         expiration: Long? = null,
         expirationTtl: Long? = null,
     ): CloudflareResult<Unit> {
-        val query = buildMap {
-            expiration?.let { put("expiration", it.toString()) }
-            expirationTtl?.let { put("expiration_ttl", it.toString()) }
-        }
-        return client.put(
-            "$basePath/$namespaceId/values/${key.encodeKey()}",
-            body = value,
-            contentType = CloudflareApiClient.TEXT_CONTENT_TYPE,
-            queryParams = query,
-        ).decodeEnvelopeUnit()
+        val query =
+            buildMap {
+                expiration?.let { put("expiration", it.toString()) }
+                expirationTtl?.let { put("expiration_ttl", it.toString()) }
+            }
+        return client
+            .put(
+                "$basePath/$namespaceId/values/${key.encodeKey()}",
+                body = value,
+                contentType = CloudflareApiClient.TEXT_CONTENT_TYPE,
+                queryParams = query,
+            ).decodeEnvelopeUnit()
     }
 
     /** Delete a value. */
@@ -141,10 +146,11 @@ public class KvApi(
         namespaceId: String,
         entries: List<KvBulkWriteEntry>,
     ): CloudflareResult<KvBulkResult> {
-        val body = defaultCloudflareJson.encodeToString(
-            ListSerializer(KvBulkWriteEntry.serializer()),
-            entries,
-        )
+        val body =
+            defaultCloudflareJson.encodeToString(
+                ListSerializer(KvBulkWriteEntry.serializer()),
+                entries,
+            )
         return client.put("$basePath/$namespaceId/bulk", body = body).decodeEnvelope()
     }
 
@@ -153,10 +159,11 @@ public class KvApi(
         namespaceId: String,
         keys: List<String>,
     ): CloudflareResult<KvBulkResult> {
-        val body = defaultCloudflareJson.encodeToString(
-            ListSerializer(String.serializer()),
-            keys,
-        )
+        val body =
+            defaultCloudflareJson.encodeToString(
+                ListSerializer(String.serializer()),
+                keys,
+            )
         return client.post("$basePath/$namespaceId/bulk/delete", body = body).decodeEnvelope()
     }
 
